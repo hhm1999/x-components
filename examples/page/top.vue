@@ -8,7 +8,7 @@
       <span :class="$style.color5">ent</span>
       <span :class="$style.color6">s</span>
     </div>
-    <a href="https://github.com/"><x-icon :class="$style.github" type="doc-github"></x-icon></a>
+    <a href="https://github.com/hhm1999/x-components"><x-icon :class="$style.github" type="doc-github"></x-icon></a>
   </div>
 </template>
 
