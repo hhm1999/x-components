@@ -1,0 +1,82 @@
+<template>
+  <div :class="$style.main">
+    <div :class="$style.top">
+      <x-tooltip-confirm @confirm="confirm" @cancel="cancel" content="上左对齐位置 placement=top-start" placement="top-start">
+        <x-btn :class="$style.btn">top-start</x-btn>
+      </x-tooltip-confirm>
+      <x-tooltip-confirm @confirm="confirm" @cancel="cancel" content="正上方位置 placement=top" placement="top">
+        <x-btn :class="$style.btn">top</x-btn>
+      </x-tooltip-confirm>
+      <x-tooltip-confirm @confirm="confirm" @cancel="cancel" content="上右对齐位置 placement=top-end" placement="top-end">
+        <x-btn :class="$style.btn">top-end</x-btn>
+      </x-tooltip-confirm>
+    </div>
+    <div :class="$style.left">
+      <x-tooltip-confirm @confirm="confirm" @cancel="cancel" content="左上对齐位置placement=left-start" placement="left-start">
+        <x-btn :class="$style.btn">left-start</x-btn>
+      </x-tooltip-confirm>
+      <x-tooltip-confirm @confirm="confirm" @cancel="cancel" content="正左方位置placement=left" placement="left">
+        <x-btn :class="$style.btn">left</x-btn>
+      </x-tooltip-confirm>
+      <x-tooltip-confirm @confirm="confirm" @cancel="cancel" content="左下对齐位置placement=left-end" placement="left-end">
+        <x-btn :class="$style.btn">left-end</x-btn>
+      </x-tooltip-confirm>
+    </div>
+     <div :class="$style.right">
+      <x-tooltip-confirm @confirm="confirm" @cancel="cancel" content="右上对齐位置placement=right-start" placement="right-start">
+        <x-btn :class="$style.btn">left-start</x-btn>
+      </x-tooltip-confirm>
+      <x-tooltip-confirm @confirm="confirm" @cancel="cancel" content="正右方位置placement=right" placement="right">
+        <x-btn :class="$style.btn">left</x-btn>
+      </x-tooltip-confirm>
+      <x-tooltip-confirm @confirm="confirm" @cancel="cancel" content="右下对齐位置placement=right-end" placement="right-end">
+        <x-btn :class="$style.btn">left-end</x-btn>
+      </x-tooltip-confirm>
+    </div>
+    <div :class="$style.bottom">
+      <x-tooltip-confirm @confirm="confirm" @cancel="cancel" content="下左对齐位置 placement=bottom-start" placement="bottom-start">
+        <x-btn :class="$style.btn">bottom-start</x-btn>
+      </x-tooltip-confirm>
+      <x-tooltip-confirm @confirm="confirm" @cancel="cancel" content="正下方位置 placement=bottom" placement="bottom">
+        <x-btn :class="$style.btn">bottom</x-btn>
+      </x-tooltip-confirm>
+      <x-tooltip-confirm @confirm="confirm" @cancel="cancel" content="下右对齐位置 placement=bottom-end" placement="bottom-end">
+        <x-btn :class="$style.btn">bottom-end</x-btn>
+      </x-tooltip-confirm>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  methods: {
+    confirm () {
+      alert('点击了确认')
+    },
+    cancel () {
+      alert('点击了取消')
+    }
+  }
+}
+</script>
+<style module lang="scss">
+.main{
+  .btn {
+    margin: 10px;
+  }
+  .top{
+    margin-left: 160px; 
+  }
+  .left{
+    width: 150px;
+    float: left;
+  }
+  .right{
+    width: 150px;
+    margin-left: 500px; 
+    text-align: right;
+  }
+  .bottom{
+    margin-left: 120px; 
+  }
+}
+</style>

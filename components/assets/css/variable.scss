@@ -1,0 +1,114 @@
+@charset "UTF-8";
+$color-white: #FFFFFF; // 白色
+$color-black: #000000; // 黑色
+
+// $color-primary: #409EFF; // 主题色
+$color-primary: #409EFF;
+$color-primary-dark: mix($color-black, $color-primary, 10%); // 主题色微深
+$color-primary-light: mix($color-white, $color-primary, 20%); // 微浅
+$color-primary-lighter: mix($color-white, $color-primary, 55%); // 浅
+$color-primary-very-light: mix($color-white, $color-primary, 72%); // 再浅
+$color-primary-extra-light: mix($color-white, $color-primary, 90%); // 极浅
+
+$color-success: #67C23A; // 成功色
+$color-success-dark: mix($color-black, $color-success, 10%); // 主题色微深
+$color-success-light: mix($color-white, $color-success, 20%); // 微浅
+$color-success-lighter: mix($color-white, $color-success, 55%); // 浅
+$color-success-very-light: mix($color-white, $color-success, 72%); // 再浅
+$color-success-extra-light: mix($color-white, $color-success, 90%); // 极浅
+
+$color-warning: #E6A23C; // 警告色
+$color-warning-dark: mix($color-black, $color-warning, 10%); // 主题色微深
+$color-warning-light: mix($color-white, $color-warning, 20%); // 微浅
+$color-warning-lighter: mix($color-white, $color-warning, 55%); // 浅
+$color-warning-very-light: mix($color-white, $color-warning, 72%); // 再浅
+$color-warning-extra-light: mix($color-white, $color-warning, 90%); // 极浅
+
+$color-danger: #F56C6C; // 危险色
+$color-danger-dark: mix($color-black, $color-danger, 10%); // 主题色微深
+$color-danger-light: mix($color-white, $color-danger, 20%); // 微浅
+$color-danger-lighter: mix($color-white, $color-danger, 55%); // 浅
+$color-danger-very-light: mix($color-white, $color-danger, 72%); // 再浅
+$color-danger-extra-light: mix($color-white, $color-danger, 90%); // 极浅
+
+$color-text-primary: #303133; // 主要文字色
+$color-text-regular: #606266; // 常规文字色
+$color-text-secondary: #909399; // 次要文字色
+$color-text-placeholder: #C0C4CC; // 占位文字色
+
+$border-color-base: #DCDFE6; // 一级边框色
+$border-color-light: #E4E7ED; // 二级边框色
+$border-color-lighter: #EBEEF5; // 三级边框色
+$border-color-extra-light: #F2F6FC; // 四级边框色
+
+$background-color-base: #F5F7FA; // 基础背景色
+$background-color-base-light: mix($color-white, $background-color-base, 20%); ; // 基础背景色 微浅
+
+$background-color-white-transparent: rgba(255,255,255,.8); // 透明背景色
+
+$bold-weight: bold; // 粗体值
+
+$radius: 2px; // 全局微圆角
+
+$boxShadowTiny: 0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5); // 全局微投影
+$boxShadowFloat: 0 2px 8px rgba(0,0,0,.15); // 全局浮起投影
+
+$color-rainbow-1: #f26970;
+$color-rainbow-1-dark: mix($color-black, $color-rainbow-1, 10%);
+$color-rainbow-1-light: mix($color-white, $color-rainbow-1, 10%);
+$color-rainbow-2: #dd7c4f;
+$color-rainbow-2-dark: mix($color-black, $color-rainbow-2, 10%);
+$color-rainbow-2-light: mix($color-white, $color-rainbow-2, 10%);
+$color-rainbow-3: #fcd978;
+$color-rainbow-3-dark: mix($color-black, $color-rainbow-3, 10%);
+$color-rainbow-3-light: mix($color-white, $color-rainbow-3, 10%);
+$color-rainbow-4: #9ec29c;
+$color-rainbow-4-dark: mix($color-black, $color-rainbow-4, 10%);
+$color-rainbow-4-light: mix($color-white, $color-rainbow-4, 10%);
+$color-rainbow-5: #99b2eb;
+$color-rainbow-5-dark: mix($color-black, $color-rainbow-5, 10%);
+$color-rainbow-5-light: mix($color-white, $color-rainbow-5, 10%);
+$color-rainbow-6: #e1adaf;
+$color-rainbow-6-dark: mix($color-black, $color-rainbow-6, 10%);
+$color-rainbow-6-light: mix($color-white, $color-rainbow-6, 10%);
+$color-rainbow-7: #b59cd5;
+$color-rainbow-7-dark: mix($color-black, $color-rainbow-7, 10%);
+$color-rainbow-7-light: mix($color-white, $color-rainbow-7, 10%);
+
+@mixin inputAndTextarea() {
+  input,textarea{
+    outline: none;
+    color: $color-text-regular;
+    font-family: inherit;
+  }
+  input:-webkit-autofill,select:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px white  inset !important;
+  }
+  input, textarea{
+    outline-color: invert ;
+    outline-style: none ;
+    outline-width: 0px ;
+    border: none ;
+    border-style: none ;
+    text-shadow: none ;
+    -webkit-appearance: none ;
+    -webkit-user-select: text ;
+    outline-color: transparent ;
+    box-shadow: none;
+    &::-ms-clear{display: none;}
+    &::-ms-reveal{display: none;}
+    &::-o-clear{display: none;}
+  }
+}
+@mixin basis() {
+  color: $color-text-regular;
+  font-size: 14px;
+  padding:0px;
+  margin:0px;
+  box-sizing: border-box;
+  *{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+  }
+}

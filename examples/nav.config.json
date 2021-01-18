@@ -1,0 +1,103 @@
+[
+  {
+    "title": "开始",
+    "path": "start"
+  },
+  {
+    "title": "表单",
+    "children": [
+      {
+        "title": "select 选择器",
+        "path": "select"
+      },
+      {
+        "title": "cascader 多级选择器",
+        "path": "cascader"
+      },
+      {
+        "title": "checkbox 多选框",
+        "path": "checkbox"
+      },
+      {
+        "title": "radio 单选框",
+        "path": "radio"
+      },
+      {
+        "title": "datePicker 日期选择器",
+        "path": "datePicker"
+      },
+      {
+        "title": "timePicker 时间选择器",
+        "path": "timePicker"
+      },
+      {
+        "title": "input 输入框",
+        "path": "input"
+      },
+      {
+        "title": "textarea 长文本输入框",
+        "path": "textarea"
+      },
+      {
+        "title": "number 数字输入框",
+        "path": "number"
+      },
+      {
+        "title": "switch 开关",
+        "path": "switch"
+      },
+      {
+        "title": "forms 表单",
+        "path": "forms"
+      }
+    ]
+  },
+  {
+    "title": "btn 按钮",
+    "path": "btn"
+  },
+  {
+    "title": "spin 等待过程动效",
+    "path": "spin"
+  },
+  {
+    "title": "loading 加载提示",
+    "path": "loading"
+  },
+  {
+    "title": "drag 拖拽排序",
+    "path": "drag"
+  },
+  {
+    "title": "message 消息提示",
+    "path": "message"
+  },
+  {
+    "title": "explain 解释说明",
+    "path": "explain"
+  },
+  {
+    "title": "tooltip 文字提示",
+    "path": "tooltip"
+  },
+  {
+    "title": "tooltip-confirm 气泡确认框",
+    "path": "tooltip-confirm"
+  },
+  {
+    "title": "pop 弹窗",
+    "path": "pop"
+  },
+  {
+    "title": "table 表格",
+    "path": "table"
+  },
+  {
+    "title": "paging 分页",
+    "path": "paging"
+  },
+  {
+    "title": "tabs 标签页",
+    "path": "tabs"
+  }
+]

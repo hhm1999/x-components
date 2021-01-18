@@ -1,0 +1,25 @@
+.c_ellipsis{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.c_noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  -khtml-user-select: none;
+  user-select: none; /* Non-prefixed version, currently not supported by any browser */
+}
+.c_cf {
+  *zoom:1
+}
+.c_cf:after,.c_cf:before {
+  display: table;
+  content: "";
+  line-height: 0
+}
+.c_cf:after {
+  clear: both
+}
