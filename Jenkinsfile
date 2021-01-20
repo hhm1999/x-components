@@ -1,9 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('registry') {
       steps {
-        sh 'ls'
+        sh 'docker login -u hi34219838@aliyun.com -p ${ALI_YUN_repositories_password} registry.cn-shenzhen.aliyuncs.com/x-components/docs'
+        sh 'docker build -t registry.cn-shenzhen.aliyuncs.com/x-components/docs:$BUILD_NUMBER .'
+        sh 'docker push registry.cn-shenzhen.aliyuncs.com/x-components/docs:$BUILD_NUMBER'
       }
     }
 
