@@ -2,8 +2,8 @@ pipeline {
   agent any
   stages {
     stage('registry') {
+      agent any
       steps {
-        sh 'npm run build-examples'
         sh 'docker login -u hi34219838@aliyun.com -p ${ALI_YUN_repositories_password} registry.cn-shenzhen.aliyuncs.com/x-components/docs'
         sh 'docker build -t registry.cn-shenzhen.aliyuncs.com/x-components/docs:$BUILD_NUMBER .'
         sh 'docker push registry.cn-shenzhen.aliyuncs.com/x-components/docs:$BUILD_NUMBER'
@@ -11,6 +11,7 @@ pipeline {
     }
 
     stage('deploy') {
+      agent any
       steps {
         sh '''ssh -o StrictHostKeyChecking=no root@47.112.165.76
 docker rm -f xComponentsDocs || true
