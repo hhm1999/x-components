@@ -12,7 +12,7 @@ COPY . /app/
 WORKDIR /app
 
 # 安装npm依赖(使用淘宝的镜像源)
-RUN npm install --production --registry=https://registry.npm.taobao.org
+RUN npm install
 RUN npm run build-examples
 
 # 暴露容器端口
