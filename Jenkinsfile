@@ -11,6 +11,7 @@ pipeline {
     }
 
     stage('deploy') {
+      agent any
       steps {
         sh '''ssh -o StrictHostKeyChecking=no root@47.112.165.76
 docker rm -f xComponentsDocs || true
