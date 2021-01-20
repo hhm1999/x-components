@@ -23,7 +23,7 @@ for (const navOne of navConfig) {
 export default new Router({
   routes: [
     {
-      path: '/components',
+      path: '/',
       name: 'components',
       component: () => import('./page/index.vue'),
       children: componentsChildren

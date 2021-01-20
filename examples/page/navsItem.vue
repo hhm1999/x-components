@@ -49,7 +49,7 @@ export default {
       }
     },
     path () {
-      return '/components/' + this.data.path
+      return '/' + this.data.path
     },
     styleMain () {
       return {
