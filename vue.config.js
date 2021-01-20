@@ -14,7 +14,7 @@ module.exports = {
       .loader('vue-loader')
       .end()
       .use('vue-markdown-loader')
-      .loader('@hhm1999/vue-markdown-doc-loader')
+      .loader('@hhm1999/vue-markdown-loader')
       .options({
         demoContainerComponentName: 'vueMarkdownLoaderDemoContainer'
       })
