@@ -19,4 +19,4 @@ RUN npm run build-examples
 EXPOSE 1999
 
 # 启动node应用
-CMD serve -s docs
+CMD npm run start-docs
