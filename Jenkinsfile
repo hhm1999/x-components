@@ -9,5 +9,13 @@ pipeline {
       }
     }
 
+    stage('') {
+      steps {
+        sh '''ssh -o StrictHostKeyChecking=no root@47.112.165.76
+docker rm -f xComponentsDocs || true
+docker run -d --name=xComponentsDocs --network host registry.cn-shenzhen.aliyuncs.com/catflow/service:$BUILD_NUMBER'''
+      }
+    }
+
   }
 }
