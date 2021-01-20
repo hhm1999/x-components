@@ -10,7 +10,7 @@
     "serve": "vue-cli-service serve",
     "build-components": "vue-cli-service build --report --target lib --name x-components ./components/index.js",
     "build-examples": "vue-cli-service build --dest docs",
-    "start-docs": "serve -s docs",
+    "start-docs": "serve docs",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
