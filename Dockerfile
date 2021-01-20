@@ -15,8 +15,5 @@ WORKDIR /app
 RUN npm install --registry=https://registry.npm.taobao.org
 RUN npm run build-examples
 
-# 暴露容器端口
-EXPOSE 1999
-
 # 启动node应用
 CMD npm run start-docs
