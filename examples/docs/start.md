@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://cdn.rawgit.com/ElemeFE/element/dev/element_logo.svg">
+  <img width="40%" src="./logo.png">
 </p>
 
 ### 安装
 ```shell
-npm i @hhm1999/x-components -S
+npm i @hhm1999/x-components --save
 ```
