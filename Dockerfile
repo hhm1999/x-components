@@ -12,7 +12,8 @@ COPY . /app/
 WORKDIR /app
 
 # 安装npm依赖(使用淘宝的镜像源)
-RUN npm install --registry=https://registry.npm.taobao.org
+RUN npm install -g cnpm --registry=https://registry.npm.taobao.org
+RUN cnpm install
 RUN npm run build-examples
 
 # 启动node应用
