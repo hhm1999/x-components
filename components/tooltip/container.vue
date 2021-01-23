@@ -126,25 +126,25 @@ export default {
       if (direction === 'top') {
         that.$set(that.styleArrow, 'borderColor', `transparent ${this.borderLeftColor} ${this.borderLeftColor} transparent`)
         that.$set(that.styleArrow, 'boxShadow', '3px 3px 5px rgba(0, 0, 0, 0.05)')
-        that.$set(that.styleArrow, 'bottom', '8px')
+        that.$set(that.styleArrow, 'bottom', '9px')
         that.$set(that.styleMain, 'paddingBottom', '12px')
         referenceDomSizeInfo && that.$set(that.styleMain, 'bottom', referenceDomSizeInfo.bottom + 'px')
       } else if (direction === 'bottom') {
         that.$set(that.styleArrow, 'borderColor', `${this.borderLeftColor} transparent transparent ${this.borderLeftColor}`)
         that.$set(that.styleArrow, 'boxShadow', '-3px -3px 5px rgba(0, 0, 0, 0.05)')
-        that.$set(that.styleArrow, 'top', '8px')
+        that.$set(that.styleArrow, 'top', '9px')
         that.$set(that.styleMain, 'paddingTop', '12px')
         referenceDomSizeInfo && that.$set(that.styleMain, 'top', referenceDomSizeInfo.top + referenceDomSizeInfo.height + 'px')
       } else if (direction === 'left') {
         that.$set(that.styleArrow, 'borderColor', `${this.borderLeftColor} ${this.borderLeftColor} transparent transparent `)
         that.$set(that.styleArrow, 'boxShadow', '3px -3px 5px rgba(0, 0, 0, 0.05)')
-        that.$set(that.styleArrow, 'right', '8px')
+        that.$set(that.styleArrow, 'right', '9px')
         that.$set(that.styleMain, 'paddingRight', '12px')
         referenceDomSizeInfo && that.$set(that.styleMain, 'right', referenceDomSizeInfo.right + 'px')
       } else if (direction === 'right') {
         that.$set(that.styleArrow, 'borderColor', `transparent transparent ${this.borderLeftColor} ${this.borderLeftColor}`)
         that.$set(that.styleArrow, 'boxShadow', '-3px 3px 5px rgba(0, 0, 0, 0.05)')
-        that.$set(that.styleArrow, 'left', '8px')
+        that.$set(that.styleArrow, 'left', '9px')
         that.$set(that.styleMain, 'paddingLeft', '12px')
         referenceDomSizeInfo && that.$set(that.styleMain, 'left', referenceDomSizeInfo.left + referenceDomSizeInfo.width + 'px')
       }

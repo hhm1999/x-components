@@ -83,6 +83,29 @@ export default {
   .bottom{
     margin-left: 120px; 
   }
+  @media screen and (max-width: 900px){
+    overflow: hidden;
+    .btn {
+      margin: 2px;
+    }
+    .top{
+      margin-left: 0px;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .right{
+      margin-left: 0px;
+      float: right;
+    }
+    .bottom{
+      margin-left: 0px;
+      width: 100%;
+      text-align: center;
+      margin-top: 10px;
+      float: left;
+    }
+  }
 }
 </style>
 ```

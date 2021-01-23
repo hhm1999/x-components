@@ -17,7 +17,7 @@
 <style module lang="scss">
 .main{
   .explain{
-    margin-right: 20px;
+    margin: 10px;
   }
 }
 </style>

@@ -32,6 +32,7 @@ export default {
   text-align: center;
   .container{
     position: relative;
+    z-index: 1;
     height: 250px;
     margin-bottom: 10px;
     /* background-color: #dd7c4f; */

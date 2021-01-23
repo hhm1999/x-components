@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.main">
+  <div :class="classMian">
     <template v-if="data.children">
       <div :class="$style.title">{{ data.title }}</div>
       <navs-item :class="$style.lower_level" :key="nav.path" v-for="nav in data.children" :data="nav"></navs-item>
@@ -42,6 +42,12 @@ export default {
     }
   },
   computed: {
+    classMian () {
+      return {
+        [this.$style.main]: true,
+        [this.$style.mobile_disable]: this.data.mobileDisable
+      }
+    },
     classItem () {
       return {
         [this.$style.item]: true,
@@ -70,6 +76,27 @@ export default {
 <style module lang="scss">
 .main{
   margin-bottom: 0px;
+  &.mobile_disable{
+    position: relative;
+    @media screen and (max-width: 900px){
+      &::after{
+        content: '这个组件暂不支持移动端';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        text-align: right;
+        color: $color-warning;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 40px;
+        background: rgba($color: #fafafa, $alpha: 0.8);
+        padding-right: 10px;
+        box-sizing: border-box;
+      }
+    }
+  }
   .title{
     font-size: 14px;
     font-weight: 500;

@@ -1,7 +1,6 @@
 <template>
-  <nav :class="$style.main" :style="styleMain">
+  <nav :class="$style.main">
     <navs-item :key="nav.path" v-for="nav in navs" :data="nav"></navs-item>
-    <!-- {{ navs }} -->
   </nav>
 </template>
 
@@ -10,10 +9,6 @@ import navConfig from '../nav.config.json';
 import navsItem from './navsItem';
 export default {
   props: {
-    width: {
-      type: Number,
-      default: 300
-    }
   },
   data () {
     return {
@@ -23,11 +18,6 @@ export default {
   methods: {
   },
   computed: {
-    styleMain () {
-      return {
-        width: this.width + 'px'
-      }
-    }
   },
   created () {
   },
@@ -51,5 +41,10 @@ export default {
   padding: 70px 0px 10px 0px;
   overflow: hidden auto;
   box-sizing: border-box;
+}
+@media screen and (max-width: 900px){
+  .main{
+    padding: 50px 0px 10px 0px;
+  }
 }
 </style>

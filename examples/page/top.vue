@@ -1,5 +1,6 @@
 <template>
   <div :class="$style.main" :style="styleMain">
+    <a href="javascript:" @click="$emit('click-menu-bar')" :class="$style.menu"><x-icon type="docs-menu"></x-icon></a>
     <div :class="$style.name">
       <span :class="$style.color1">x</span>
       <span :class="$style.color2">-</span>
@@ -49,7 +50,7 @@ export default {
   box-sizing: border-box;
   top: 0px;
   left: 0px;
-  z-index: 1;
+  z-index: 3;
   .name{
     display: inline-block;
     font-size: 25px;
@@ -82,6 +83,32 @@ export default {
     margin: 14px;
     &:hover{
       color: #24292e;
+    }
+  }
+  .menu{
+    display: none;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 41px;
+    line-height: 41px;
+    width: 41px;
+    font-size: 16px;
+    color: $color-text-regular;
+  }
+  @media screen and (max-width: 900px){
+    text-align: center;
+    height: 42px;
+    .github{
+      display: none;
+    }
+    .name{
+      padding-left: 0px;
+      font-size: 16px;
+      line-height: 40px;
+    }
+    .menu{
+      display: block;
     }
   }
 }

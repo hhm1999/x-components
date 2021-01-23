@@ -5,6 +5,7 @@
 </template>
 <style module lang="scss">
 .main{
+  z-index: 1;
   position: relative;
   height: 250px;
 }

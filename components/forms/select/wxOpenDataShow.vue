@@ -1,5 +1,5 @@
 <template>
-  <span :class="$style.main">
+  <span>
     <span :key="item" v-for="(item, index) in value">
       <x-ww-open-data :type="getWwOpenDataType(index)" :openid="item"></x-ww-open-data>
       <template v-if="index !== value.length - 1"> / </template>
@@ -44,9 +44,3 @@ export default {
   }
 }
 </script>
-<style module lang="scss">
-.main{
-  // width: 300px;
-  // height: 40px;
-}
-</style>

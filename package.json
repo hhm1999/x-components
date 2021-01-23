@@ -14,7 +14,6 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@hhm1999/vue-markdown-loader": "^0.2.3",
     "async-validator": "^3.2.2",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
@@ -38,12 +37,13 @@
     "node-sass": "^5.0.0",
     "sass": "^1.30.0",
     "sass-loader": "^10.1.0",
-    "serve": "^11.3.2"
+    "serve": "^11.3.2",
+    "@hhm1999/vue-markdown-loader": "^1.0.4"
   },
   "eslintIgnore": [
     "/src/assets/**/*.js",
     "/dist/**/*.js",
-    "/examples/**/*.vue",
+    "/examples/docs/**/*.vue",
     "/examples/**/*.md",
     "/components/assets/**/*.js"
   ],

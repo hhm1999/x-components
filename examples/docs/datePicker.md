@@ -44,6 +44,11 @@ export default {
 .main{
   width: 400px;
 }
+@media screen and (max-width: 900px){
+  .main{
+    width: 100%;
+  }
+}
 </style>
 ```
 
@@ -203,6 +208,11 @@ export default {
 <style module lang="scss">
 .main{
   width: 400px;
+}
+@media screen and (max-width: 900px){
+  .main{
+    width: 100%;
+  }
 }
 </style>
 ```
