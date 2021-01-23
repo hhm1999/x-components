@@ -3,7 +3,9 @@ import Router from 'vue-router'
 import navConfig from './nav.config.json';
 
 Vue.use(Router)
-const componentsChildren = []
+const componentsChildren = [
+  { path: '/', redirect: 'start' }
+]
 const loadDoc = function (navOne) {
   if (navOne.path) {
     componentsChildren.push({
