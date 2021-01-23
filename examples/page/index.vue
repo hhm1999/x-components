@@ -87,7 +87,7 @@ export default {
       }
     }
     .body{
-      padding: 40px 10px 10px 10px;
+      padding: 50px 10px 10px 10px;
     }
   }
   code {

@@ -90,22 +90,22 @@ export default {
     position: absolute;
     left: 0px;
     top: 0px;
-    height: 41px;
-    line-height: 41px;
-    width: 41px;
-    font-size: 16px;
+    height: 51px;
+    line-height: 51px;
+    width: 51px;
+    font-size: 18px;
     color: $color-text-regular;
   }
   @media screen and (max-width: 900px){
     text-align: center;
-    height: 42px;
+    height: 52px;
     .github{
       display: none;
     }
     .name{
       padding-left: 0px;
-      font-size: 16px;
-      line-height: 40px;
+      font-size: 20px;
+      line-height: 50px;
     }
     .menu{
       display: block;
