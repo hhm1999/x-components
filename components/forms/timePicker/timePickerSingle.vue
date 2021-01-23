@@ -249,7 +249,9 @@ export default {
       return {
         [this.$style.main]: true,
         [this.$style.has_value]: this.value!==null && !this.disabled,
-        [this.$style.disabled]: this.disabled
+        [this.$style.disabled]: this.disabled,
+        [this.$style.mobile]: utils.isMobile(),
+        [this.$style.pc]: !utils.isMobile()
       }
     },
     classArrowIcon () {
@@ -394,7 +396,17 @@ export default {
     }
   }
   &.has_value{
-    &:hover{
+    &.pc{
+      &:hover{
+        .empty_icon{
+          display: block;
+        }
+        .arrow_icon{
+          display: none;
+        }
+      }
+    }
+    &.mobile{
       .empty_icon{
         display: block;
       }
