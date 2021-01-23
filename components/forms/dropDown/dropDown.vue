@@ -285,7 +285,7 @@ export default {
   }
   .confirm_btn{
     // position: absolute;
-    padding:0px;
+    // padding:0px;
     margin:0px;
     box-sizing: border-box;
     margin: 0 auto;

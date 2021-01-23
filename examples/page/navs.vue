@@ -1,7 +1,7 @@
 <template>
-  <nav :class="$style.main">
+  <x-hide-scroll-bar y :class="$style.main">
     <navs-item :key="nav.path" v-for="nav in navs" :data="nav"></navs-item>
-  </nav>
+  </x-hide-scroll-bar>
 </template>
 
 <script>

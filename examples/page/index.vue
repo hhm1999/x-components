@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.main">
-    <top @click-menu-bar="handleClickMenuBar"></top>
+    <top @click-menu-bar="handleClickMenuBar" v-x-clickoutside="handleNavsClickoutside"></top>
     <navs :class="classNavs"></navs>
     <div ref="body" :class="$style.body">
       <keep-alive>
@@ -27,7 +27,13 @@ export default {
   },
   methods: {
     handleClickMenuBar () {
+      console.log(1);
       this.navsShow = !this.navsShow
+    },
+    handleNavsClickoutside () {
+      if (this.navsShow) {
+        this.navsShow = false
+      }
     }
   },
   computed: {
