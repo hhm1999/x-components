@@ -48,16 +48,15 @@ export default {
       this.zIndex = utils.zIndex.nextZIndexThird()
       this.visible = true
       this.url = url
-      const that = this
       const windowProportion = window.innerWidth / window.innerHeight
-      that.$nextTick(function () {
-        const imageProportion = that.$refs.img.naturalWidth / that.$refs.img.naturalHeight
+      this.$nextTick(() => {
+        const imageProportion = this.$refs.img.naturalWidth / this.$refs.img.naturalHeight
         if (imageProportion > windowProportion) { // 图片相对于屏幕更宽
-          that.imgWidth = that.$refs.img.naturalWidth > window.innerWidth ? window.innerWidth + 'px' : that.$refs.img.naturalWidth + 'px'
-          that.imgHeight = 'auto'
+          this.imgWidth = this.$refs.img.naturalWidth > window.innerWidth ? window.innerWidth + 'px' : this.$refs.img.naturalWidth + 'px'
+          this.imgHeight = 'auto'
         } else {
-          that.imgHeight = that.$refs.img.naturalHeight > window.innerHeight ? window.innerHeight + 'px' : that.$refs.img.naturalHeight + 'px'
-          that.imgWidth = 'auto'
+          this.imgHeight = this.$refs.img.naturalHeight > window.innerHeight ? window.innerHeight + 'px' : this.$refs.img.naturalHeight + 'px'
+          this.imgWidth = 'auto'
         }
       })
     },

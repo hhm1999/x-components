@@ -181,9 +181,8 @@ export default {
       const disabled = this.getIsDisabledByValueCallBack(val)
       const selected = (val === this.value)
       if (selected && disabled) {
-        const that = this
-        that.$nextTick(function () {
-          that.$emit('input', this.getAnOptionalValue())
+        this.$nextTick(() => {
+          this.$emit('input', this.getAnOptionalValue())
         })
       }
       return {

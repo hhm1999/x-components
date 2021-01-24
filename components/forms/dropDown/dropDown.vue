@@ -70,16 +70,15 @@ export default {
         this.zIndex = utils.zIndex.nextZIndex()
         if (!this.isAppend) {
           this.isAppend = true
-          const that = this
           this.$parent.popperElm = this.$el
-          this.$nextTick(function () {
+          this.$nextTick(() => {
             // that.dropDownContainer = utils.dom.getParentByAttribute(that.$el, 'drop-down-container')
-            that.dropDownContainer = null
-            if (that.dropDownContainer) { // 相对于有drop-down-container属性的父级定位
-              that.parentNode = that.dropDownContainer
-              that.dropDownContainer.appendChild(this.$el)
+            this.dropDownContainer = null
+            if (this.dropDownContainer) { // 相对于有drop-down-container属性的父级定位
+              this.parentNode = this.dropDownContainer
+              this.dropDownContainer.appendChild(this.$el)
             } else { // 相对于根节点定位
-              that.parentNode = document.body
+              this.parentNode = document.body
               document.body.appendChild(this.$el)
             }
             this.setLocation()
@@ -172,14 +171,13 @@ export default {
       if (this.isMobile) {
         return
       }
-      const that = this
-      that.clearKeepPositionSetTimeout()
-      that.setLocation()
-      that.keepPositionSetTimeout = setTimeout(function () {
-        if (that.show) {
-          that.keepPosition()
+      this.clearKeepPositionSetTimeout()
+      this.setLocation()
+      this.keepPositionSetTimeout = setTimeout(() => {
+        if (this.show) {
+          this.keepPosition()
         } else {
-          that.clearKeepPositionSetTimeout()
+          this.clearKeepPositionSetTimeout()
         }
       }, 200)
     },
@@ -190,9 +188,8 @@ export default {
       }
     },
     open_scrollMiddle (y) { // 将指定y坐标滚动到视觉中心
-      const that = this
-      this.$nextTick(function () {
-        that.$refs.content.scrollTop = y - that.$el.offsetHeight / 2
+      this.$nextTick(() => {
+        this.$refs.content.scrollTop = y - this.$el.offsetHeight / 2
       })
     },
     open_setReferenceDom (referenceDom) { // 设置参照物

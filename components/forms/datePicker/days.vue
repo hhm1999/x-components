@@ -206,9 +206,8 @@ export default {
     getDayClass (day) {
       const dayState = this.getDayState(day)
       if (dayState.selected && dayState.disabled && this.disabledEmpty) {
-        const that = this
-        that.$nextTick(function () {
-          that.$emit('selected', null)
+        this.$nextTick(() => {
+          this.$emit('selected', null)
         })
       }
       return {

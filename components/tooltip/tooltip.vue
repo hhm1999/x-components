@@ -68,19 +68,18 @@ export default {
   beforeCreate() {
   },
   created () {
-    let that = this
     let instance = Vue.extend({
-      render: function (createElement) {
+      render: (createElement) => {
         return createElement(
           container,
           {
             props: {
-              placement: that.placement,
-              interaction: that.interaction,
-              type: that.type
+              placement: this.placement,
+              interaction: this.interaction,
+              type: this.type
             }
           },
-          that.content || that.$slots.content)
+          this.content || this.$slots.content)
       },
       data: function () {
         return {

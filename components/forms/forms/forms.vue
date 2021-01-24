@@ -36,11 +36,10 @@ export default {
   },
   methods: {
     open_validate (key) {
-      let that = this
-      return new Promise(function(resolve, reject) {
+      return new Promise((resolve, reject) => {
         let promises = []
-        for (let i = 0; i < that.formsItems.length; i++) {
-          promises.push(that.formsItems[i].open_validate())
+        for (let i = 0; i < this.formsItems.length; i++) {
+          promises.push(this.formsItems[i].open_validate())
         }
         utils.promise.all(promises).then(function () {
           resolve(key)

@@ -86,9 +86,8 @@ export default {
     },
     open_setParentVisibility (visibility) { // 父组件告知可见和不可见状态切换
       if (visibility && this.isSelect) {
-        let that = this
-        this.$nextTick(function () {
-          that.dropDownParent.open_scrollMiddle(that.$el.offsetTop + that.$el.offsetHeight / 2)
+        this.$nextTick(() => {
+          this.dropDownParent.open_scrollMiddle(this.$el.offsetTop + this.$el.offsetHeight / 2)
         })
       }
     },

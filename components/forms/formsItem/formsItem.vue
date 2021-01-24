@@ -143,7 +143,6 @@ export default {
   },
   methods: {
     // childFormBindEvent () {
-    //   var that = this
     //   if (this.childForm) {
     //     var component = this.childForm.component
     //     if (this.childForm.info && this.childForm.info.events) {
@@ -165,27 +164,26 @@ export default {
     //   return this.validateState === 'success'
     // },
     open_validate () {
-      let that = this
-      return new Promise(function(resolve, reject) {
-        if (!that.descriptor) {
-          that.validateState = 'success'
+      return new Promise((resolve, reject) => {
+        if (!this.descriptor) {
+          this.validateState = 'success'
           resolve()
         } else {
           var descriptor = {}
-          descriptor[that.prop] = that.descriptor
+          descriptor[this.prop] = this.descriptor
           var validator = new AsyncValidator(descriptor)
           var model = {}
-          if (utils.array.isArray(that.value)) {
-            model[that.prop] = that.value.toString()
+          if (utils.array.isArray(this.value)) {
+            model[this.prop] = this.value.toString()
           } else {
-            model[that.prop] = that.value
+            model[this.prop] = this.value
           }
           validator.validate(model, { firstFields: true }).then(() => {
-            that.validateState = 'success'
+            this.validateState = 'success'
             resolve()
           }).catch(({ errors }) => {
-            that.validateState = 'error'
-            that.validateMessage = errors[0].message
+            this.validateState = 'error'
+            this.validateMessage = errors[0].message
             reject(errors[0])
           })
         }

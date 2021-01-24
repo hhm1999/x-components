@@ -92,7 +92,6 @@ export default {
       this.visible = true
     },
     // destroyElement () {
-    //   var that = this
     //   that.clearTimer()
     //   setTimeout(() => {
     //     that.$el.parentNode.removeChild(this.$el)
@@ -116,11 +115,8 @@ export default {
     },
     close () {
       this.clearTimer()
-      let that = this
-      // setTimeout(function () {
-      that.visible = false
-      that.$emit('hide', that.mainTop, that.$refs.main.offsetHeight)
-      // }, 0)
+      this.visible = false
+      this.$emit('hide', this.mainTop, this.$refs.main.offsetHeight)
     },
     clearTimer () {
       this.timer && clearTimeout(this.timer)
@@ -128,9 +124,8 @@ export default {
     startTimer () {
       this.clearTimer()
       if (this.duration > 0) {
-        var that = this
-        this.timer = setTimeout(function () {
-          that.close()
+        this.timer = setTimeout(() => {
+          this.close()
         }, this.duration)
       }
     }

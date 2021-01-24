@@ -213,10 +213,9 @@ export default {
     },
     dropDownShow (val) {
       if (val) {
-        let that = this
-        that.$nextTick(function () {
-          that.$refs.startTimePicker.open_scrollToValue()
-          that.$refs.endTimePicker.open_scrollToValue()
+        this.$nextTick(() => {
+          this.$refs.startTimePicker.open_scrollToValue()
+          this.$refs.endTimePicker.open_scrollToValue()
         })
         this.dropDownIsInit = true
       }
@@ -378,7 +377,6 @@ export default {
       return original.replace(new RegExp(s1, 'gm'), s2)
     },
     setValueInput () {
-      let that = this
       // if (this.valueStart === undefined || this.valueEnd === undefined) {
       //   this.valueStart = null
       //   this.valueEnd = null
@@ -386,14 +384,14 @@ export default {
       // } else {
       if (this.valueStart === null && this.valueEnd !== null) {
         this.valueStart = this.valueEnd
-        this.$nextTick(function () {
-          that.$refs.startTimePicker && that.$refs.startTimePicker.open_scrollToValue()
+        this.$nextTick(() => {
+          this.$refs.startTimePicker && this.$refs.startTimePicker.open_scrollToValue()
         })
       }
       if (this.valueEnd === null && this.valueStart !== null) {
         this.valueEnd = this.valueStart
-        this.$nextTick(function () {
-          that.$refs.endTimePicker && that.$refs.endTimePicker.open_scrollToValue()
+        this.$nextTick(() => {
+          this.$refs.endTimePicker && this.$refs.endTimePicker.open_scrollToValue()
         })
       }
       let start = ''

@@ -146,9 +146,8 @@ export default {
       const selected = this.isSelected(year.year)
       let scopeInclude = this.isScopeInclude(year.moment)
       if ((selected || scopeInclude) && disabled && this.disabledEmpty) {
-        const that = this
-        that.$nextTick(function () {
-          that.$emit('selected', null)
+        this.$nextTick(() => {
+          this.$emit('selected', null)
         })
       }
       return {

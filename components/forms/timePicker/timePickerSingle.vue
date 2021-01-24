@@ -211,9 +211,8 @@ export default {
     },
     dropDownShow (val) {
       if (val) {
-        let that = this
-        that.$nextTick(function () {
-          that.panelsScrollToValue()
+        this.$nextTick(() => {
+          this.panelsScrollToValue()
         })
       }
       this.$emit('dropDownShowChange', val)
@@ -334,10 +333,9 @@ export default {
       this.dropDownShow = val
     },
     handlerSelect (index) {
-      let that = this
-      this.$nextTick(function () {
-        that.$nextTick(function () {
-          that.panelsScrollToValue(index)
+      this.$nextTick(() => {
+        this.$nextTick(() => {
+          this.panelsScrollToValue(index)
         })
       })
     },
@@ -371,9 +369,8 @@ export default {
     this.dropDownShow = false
   },
   activated () {
-    let that = this
-    this.$nextTick(function () {
-      that.setReferenceDom()
+    this.$nextTick(() => {
+      this.setReferenceDom()
     })
   },
   components: {

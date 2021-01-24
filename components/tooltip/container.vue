@@ -47,24 +47,23 @@ export default {
   },
   watch: {
     visibility: function (val) {
-      var that = this
       if (val) {
         this.$set(this.styleMain, 'zIndex', utils.zIndex.nextZIndex())
         if (this.firstShow) { // 第一次显示
           this.firstShow = false
-          this.$nextTick(function () {
-            that.isAppend = true
-            that.parentContainer = utils.dom.getParentByAttribute(that.referenceDom, 'tooltip-container')
-            if (that.parentContainer) { // 相对于有tooltip-container属性的父级定位
-              that.parentContainer.appendChild(this.$el)
+          this.$nextTick(() => {
+            this.isAppend = true
+            this.parentContainer = utils.dom.getParentByAttribute(this.referenceDom, 'tooltip-container')
+            if (this.parentContainer) { // 相对于有tooltip-container属性的父级定位
+              this.parentContainer.appendChild(this.$el)
             } else { // 相对于根节点定位
               document.body.appendChild(this.$el)
             }
-            that.setLocation()
+            this.setLocation()
           })
         } else {
-          this.$nextTick(function () {
-            that.setLocation()
+          this.$nextTick(() => {
+            this.setLocation()
           })
         }
       }
@@ -122,42 +121,40 @@ export default {
       this.visibility && this.setLocation()
     },
     setDirection (referenceDomSizeInfo, direction) { // 设置方向
-      var that = this
       if (direction === 'top') {
-        that.$set(that.styleArrow, 'borderColor', `transparent ${this.borderLeftColor} ${this.borderLeftColor} transparent`)
-        that.$set(that.styleArrow, 'boxShadow', '3px 3px 5px rgba(0, 0, 0, 0.05)')
-        that.$set(that.styleArrow, 'bottom', '9px')
-        that.$set(that.styleMain, 'paddingBottom', '12px')
-        referenceDomSizeInfo && that.$set(that.styleMain, 'bottom', referenceDomSizeInfo.bottom + 'px')
+        this.$set(this.styleArrow, 'borderColor', `transparent ${this.borderLeftColor} ${this.borderLeftColor} transparent`)
+        this.$set(this.styleArrow, 'boxShadow', '3px 3px 5px rgba(0, 0, 0, 0.05)')
+        this.$set(this.styleArrow, 'bottom', '9px')
+        this.$set(this.styleMain, 'paddingBottom', '12px')
+        referenceDomSizeInfo && this.$set(this.styleMain, 'bottom', referenceDomSizeInfo.bottom + 'px')
       } else if (direction === 'bottom') {
-        that.$set(that.styleArrow, 'borderColor', `${this.borderLeftColor} transparent transparent ${this.borderLeftColor}`)
-        that.$set(that.styleArrow, 'boxShadow', '-3px -3px 5px rgba(0, 0, 0, 0.05)')
-        that.$set(that.styleArrow, 'top', '9px')
-        that.$set(that.styleMain, 'paddingTop', '12px')
-        referenceDomSizeInfo && that.$set(that.styleMain, 'top', referenceDomSizeInfo.top + referenceDomSizeInfo.height + 'px')
+        this.$set(this.styleArrow, 'borderColor', `${this.borderLeftColor} transparent transparent ${this.borderLeftColor}`)
+        this.$set(this.styleArrow, 'boxShadow', '-3px -3px 5px rgba(0, 0, 0, 0.05)')
+        this.$set(this.styleArrow, 'top', '9px')
+        this.$set(this.styleMain, 'paddingTop', '12px')
+        referenceDomSizeInfo && this.$set(this.styleMain, 'top', referenceDomSizeInfo.top + referenceDomSizeInfo.height + 'px')
       } else if (direction === 'left') {
-        that.$set(that.styleArrow, 'borderColor', `${this.borderLeftColor} ${this.borderLeftColor} transparent transparent `)
-        that.$set(that.styleArrow, 'boxShadow', '3px -3px 5px rgba(0, 0, 0, 0.05)')
-        that.$set(that.styleArrow, 'right', '9px')
-        that.$set(that.styleMain, 'paddingRight', '12px')
-        referenceDomSizeInfo && that.$set(that.styleMain, 'right', referenceDomSizeInfo.right + 'px')
+        this.$set(this.styleArrow, 'borderColor', `${this.borderLeftColor} ${this.borderLeftColor} transparent transparent `)
+        this.$set(this.styleArrow, 'boxShadow', '3px -3px 5px rgba(0, 0, 0, 0.05)')
+        this.$set(this.styleArrow, 'right', '9px')
+        this.$set(this.styleMain, 'paddingRight', '12px')
+        referenceDomSizeInfo && this.$set(this.styleMain, 'right', referenceDomSizeInfo.right + 'px')
       } else if (direction === 'right') {
-        that.$set(that.styleArrow, 'borderColor', `transparent transparent ${this.borderLeftColor} ${this.borderLeftColor}`)
-        that.$set(that.styleArrow, 'boxShadow', '-3px 3px 5px rgba(0, 0, 0, 0.05)')
-        that.$set(that.styleArrow, 'left', '9px')
-        that.$set(that.styleMain, 'paddingLeft', '12px')
-        referenceDomSizeInfo && that.$set(that.styleMain, 'left', referenceDomSizeInfo.left + referenceDomSizeInfo.width + 'px')
+        this.$set(this.styleArrow, 'borderColor', `transparent transparent ${this.borderLeftColor} ${this.borderLeftColor}`)
+        this.$set(this.styleArrow, 'boxShadow', '-3px 3px 5px rgba(0, 0, 0, 0.05)')
+        this.$set(this.styleArrow, 'left', '9px')
+        this.$set(this.styleMain, 'paddingLeft', '12px')
+        referenceDomSizeInfo && this.$set(this.styleMain, 'left', referenceDomSizeInfo.left + referenceDomSizeInfo.width + 'px')
       }
     },
     setAlign (referenceDomSizeInfo, align, direction) {
-      var that = this
-      if (that.parentContainer) { // 相对于有tooltip-container 属性的父级定位
-        referenceDomSizeInfo = utils.dom.getLocationRelativeParent(that.referenceDom, that.parentContainer)
+      if (this.parentContainer) { // 相对于有tooltip-container 属性的父级定位
+        referenceDomSizeInfo = utils.dom.getLocationRelativeParent(this.referenceDom, this.parentContainer)
       } else { // 相对于根节点定位
-        referenceDomSizeInfo = utils.dom.getLocationRelativeWindow(that.referenceDom)
+        referenceDomSizeInfo = utils.dom.getLocationRelativeWindow(this.referenceDom)
       }
-      var width = that.$el.offsetWidth
-      var height = that.$el.offsetHeight
+      var width = this.$el.offsetWidth
+      var height = this.$el.offsetHeight
       if (direction === 'top' || direction === 'bottom') {
         let leftOrRight = 0
         if (width >= referenceDomSizeInfo.width) {
@@ -170,17 +167,17 @@ export default {
           leftOrRight = 3
         }
         if (align === 'start') {
-          that.$set(that.styleMain, 'left', referenceDomSizeInfo.left + 'px')
-          that.$set(that.styleArrow, 'left', leftOrRight + 'px')
+          this.$set(this.styleMain, 'left', referenceDomSizeInfo.left + 'px')
+          this.$set(this.styleArrow, 'left', leftOrRight + 'px')
         } else if (align === 'end') {
-          that.$set(that.styleMain, 'right', referenceDomSizeInfo.right - referenceDomSizeInfo.width + 'px')
-          that.$set(that.styleArrow, 'right', leftOrRight + 'px')
+          this.$set(this.styleMain, 'right', referenceDomSizeInfo.right - referenceDomSizeInfo.width + 'px')
+          this.$set(this.styleArrow, 'right', leftOrRight + 'px')
         } else if (align === 'center') {
-          that.$set(that.styleMain, 'left', referenceDomSizeInfo.left - (width - referenceDomSizeInfo.width) / 2 + 'px')
-          that.$set(that.styleArrow, 'left', width / 2 - 6 + 'px')
+          this.$set(this.styleMain, 'left', referenceDomSizeInfo.left - (width - referenceDomSizeInfo.width) / 2 + 'px')
+          this.$set(this.styleArrow, 'left', width / 2 - 6 + 'px')
         }
-        that.$set(that.styleOverlap, 'marginLeft', '-5px')
-        that.$delete(that.styleOverlap, 'marginTop')
+        this.$set(this.styleOverlap, 'marginLeft', '-5px')
+        this.$delete(this.styleOverlap, 'marginTop')
       } else {
         let topOrBottom = 0
         if (height >= referenceDomSizeInfo.height) {
@@ -193,17 +190,17 @@ export default {
           topOrBottom = 3
         }
         if (align === 'start') {
-          that.$set(that.styleMain, 'top', referenceDomSizeInfo.top + 'px')
-          that.$set(that.styleArrow, 'top', topOrBottom + 'px')
+          this.$set(this.styleMain, 'top', referenceDomSizeInfo.top + 'px')
+          this.$set(this.styleArrow, 'top', topOrBottom + 'px')
         } else if (align === 'end') {
-          that.$set(that.styleMain, 'bottom', referenceDomSizeInfo.bottom - referenceDomSizeInfo.height + 'px')
-          that.$set(that.styleArrow, 'bottom', topOrBottom + 'px')
+          this.$set(this.styleMain, 'bottom', referenceDomSizeInfo.bottom - referenceDomSizeInfo.height + 'px')
+          this.$set(this.styleArrow, 'bottom', topOrBottom + 'px')
         } else if (align === 'center') {
-          that.$set(that.styleMain, 'top', referenceDomSizeInfo.top - (height - referenceDomSizeInfo.height) / 2 + 'px')
-          that.$set(that.styleArrow, 'top', height / 2 - 6 + 'px')
+          this.$set(this.styleMain, 'top', referenceDomSizeInfo.top - (height - referenceDomSizeInfo.height) / 2 + 'px')
+          this.$set(this.styleArrow, 'top', height / 2 - 6 + 'px')
         }
-        that.$set(that.styleOverlap, 'marginTop', '-5px')
-        that.$delete(that.styleOverlap, 'marginLeft')
+        this.$set(this.styleOverlap, 'marginTop', '-5px')
+        this.$delete(this.styleOverlap, 'marginLeft')
       }
     },
     emptyStyle () {
@@ -241,11 +238,10 @@ export default {
       this.supposeSetLocationRecursion(sizes, referenceDomSizeInfo, directions, 0)
     },
     supposeSetLocationRecursion (sizes, referenceDomSizeInfo, directions, index) { // 暂时不用
-      var that = this
-      that.emptyStyle()
-      that.setDirection(referenceDomSizeInfo, directions[index])
-      that.$nextTick(function () {
-        that.supposeSetAlign(sizes, referenceDomSizeInfo, directions, index)
+      this.emptyStyle()
+      this.setDirection(referenceDomSizeInfo, directions[index])
+      this.$nextTick(() => {
+        this.supposeSetAlign(sizes, referenceDomSizeInfo, directions, index)
       })
     },
     supposeSetAlign (sizes, referenceDomSizeInfo, directions, index) { // 暂时不用
@@ -253,44 +249,35 @@ export default {
       this.supposeSetAlignRecursion(sizes, referenceDomSizeInfo, aligns, 0, directions, index)
     },
     supposeSetAlignRecursion (sizes, referenceDomSizeInfo, aligns, index, directions, indexDirections) { // 暂时不用
-      var that = this
-      that.emptyStyle()
-      that.setDirection(referenceDomSizeInfo, directions[indexDirections])
-      that.setAlign(referenceDomSizeInfo, aligns[index], directions[indexDirections])
-      that.$nextTick(function () {
+      this.emptyStyle()
+      this.setDirection(referenceDomSizeInfo, directions[indexDirections])
+      this.setAlign(referenceDomSizeInfo, aligns[index], directions[indexDirections])
+      this.$nextTick(() => {
         sizes.push({
           placement: directions[indexDirections] + '-' + aligns[index],
-          width: that.$refs.content.offsetWidth,
-          height: that.$refs.content.offsetHeight
+          width: this.$refs.content.offsetWidth,
+          height: this.$refs.content.offsetHeight
         })
         if (aligns.length > index + 1) {
-          that.supposeSetAlignRecursion(sizes, referenceDomSizeInfo, aligns, index + 1, directions, indexDirections)
+          this.supposeSetAlignRecursion(sizes, referenceDomSizeInfo, aligns, index + 1, directions, indexDirections)
         } else if (directions.length > indexDirections + 1) {
-          that.supposeSetLocationRecursion(sizes, referenceDomSizeInfo, directions, indexDirections + 1)
+          this.supposeSetLocationRecursion(sizes, referenceDomSizeInfo, directions, indexDirections + 1)
         } else {
-          that.determinePlacement(sizes)
+          this.determinePlacement(sizes)
         }
       })
     },
     setLocation () {
-      var that = this
       var referenceDomSizeInfo = null
-      if (that.parentContainer) { // 相对于有drop-down-container属性的父级定位
-        referenceDomSizeInfo = utils.dom.getLocationRelativeParent(that.referenceDom, that.parentContainer)
+      if (this.parentContainer) { // 相对于有drop-down-container属性的父级定位
+        referenceDomSizeInfo = utils.dom.getLocationRelativeParent(this.referenceDom, this.parentContainer)
       } else { // 相对于根节点定位
-        referenceDomSizeInfo = utils.dom.getLocationRelativeWindow(that.referenceDom)
+        referenceDomSizeInfo = utils.dom.getLocationRelativeWindow(this.referenceDom)
       }
-      that.setDirection(referenceDomSizeInfo, that.placementDirection)
-      that.$nextTick(function () {
-        that.setAlign(referenceDomSizeInfo, that.placementAlign, that.placementDirection)
+      this.setDirection(referenceDomSizeInfo, this.placementDirection)
+      this.$nextTick(() => {
+        this.setAlign(referenceDomSizeInfo, this.placementAlign, this.placementDirection)
       })
-      // styleOverlap: {},
-      // styleArrow: {},
-      // styleMain: {},
-      // console.log(JSON.stringify(this.styleMain))
-      // setTimeout(function () {
-      //   that.setAlign(referenceDomSizeInfo, that.placementAlign, that.placementDirection)
-      // }, 300)
     }
   },
   beforeDestroy () {

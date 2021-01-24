@@ -483,19 +483,18 @@ export default {
       }
     },
     setInputStyle () {
-      let that = this
-      this.$nextTick(function () {
-        if (that.$refs.multipleItemWrap && that.$refs.multipleItemWrap.offsetHeight > 40) {
-          that.multipleItemMarginBottom = 10
-          that.$nextTick(function () {
-            that.inputHeight = that.$refs.multipleItemWrap.offsetHeight
-            that.$nextTick(function () {
-              that.$refs.dropDown.open_reset(that.$refs.input.$el)
+      this.$nextTick(() => {
+        if (this.$refs.multipleItemWrap && this.$refs.multipleItemWrap.offsetHeight > 40) {
+          this.multipleItemMarginBottom = 10
+          this.$nextTick(function () {
+            this.inputHeight = this.$refs.multipleItemWrap.offsetHeight
+            this.$nextTick(function () {
+              this.$refs.dropDown.open_reset(this.$refs.input.$el)
             })
           })
         } else {
-          that.inputHeight = 40
-          that.multipleItemMarginBottom = 0
+          this.inputHeight = 40
+          this.multipleItemMarginBottom = 0
         }
       })
     },
@@ -612,10 +611,9 @@ export default {
     this.dropDownShow = false
   },
   activated () {
-    let that = this
     this.setInputStyle()
-    this.$nextTick(function () {
-      that.setReferenceDom()
+    this.$nextTick(() => {
+      this.setReferenceDom()
     })
   },
   components: {

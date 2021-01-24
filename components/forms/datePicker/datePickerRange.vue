@@ -257,9 +257,8 @@ export default {
     },
     dateTimeTabsCurrentName (val) {
       if (val === 'time') {
-        let that = this
-        this.$nextTick(function () {
-          that.$refs.timePicker.open_scrollToValue()
+        this.$nextTick(() => {
+          this.$refs.timePicker.open_scrollToValue()
         })
       }
     }
@@ -849,9 +848,8 @@ export default {
     this.dropDownShow = false
   },
   activated () {
-    let that = this
-    this.$nextTick(function () {
-      that.setReferenceDom()
+    this.$nextTick(() => {
+      this.setReferenceDom()
     })
   },
   components: {

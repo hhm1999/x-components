@@ -157,9 +157,8 @@ export default {
       const disabled = month.disabled
       const scopeInclude = month.scopeInclude
       if (selected && disabled && this.disabledEmpty) {
-        const that = this
-        that.$nextTick(function () {
-          that.$emit('selected', null)
+        this.$nextTick(() => {
+          this.$emit('selected', null)
         })
       }
       return {
