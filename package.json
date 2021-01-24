@@ -38,7 +38,7 @@
     "sass": "^1.30.0",
     "sass-loader": "^10.1.0",
     "serve": "^11.3.2",
-    "@hhm1999/vue-markdown-loader": "^1.0.4"
+    "@hhm1999/vue-markdown-loader": "^1.0.5"
   },
   "eslintIgnore": [
     "/src/assets/**/*.js",
