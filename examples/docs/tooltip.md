@@ -2,7 +2,7 @@
 气泡方式的提示。
 
 ### 基础用法
-```html
+```vue
 <template>
   <div :class="$style.main">
     <div :class="$style.top">
@@ -99,7 +99,7 @@
 ```
 
 ### 通过slot方式显示更加复杂的内容
-```html
+```vue
 <template>
   <div :class="$style.main">
     <x-tooltip placement="top-start">
@@ -125,7 +125,7 @@
 ```
 
 ### 自定义显示逻辑
-```html
+```vue
 <template>
   <div :class="$style.main">
     <x-tooltip :visibility="visibility" :interaction="false" content="鼠标点击才显示" placement="right-start">

@@ -1,7 +1,7 @@
 ### checkbox 多选框
 多选框。
 
-```html
+```vue
 <template>
   <div>
     <p class="c_title">单独使用</p>

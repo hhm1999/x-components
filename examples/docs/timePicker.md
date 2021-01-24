@@ -2,7 +2,7 @@
 时间选择器。
 
 #### 基础用法
-```html
+```vue
 <template>
   <div :class="$style.main">
     <p class="c_title">基础用法</p>
@@ -47,7 +47,7 @@ export default {
 ```
 
 #### 可选范围限制
-```html
+```vue
 <template>
   <div :class="$style.main">
     <p class="c_title">自定义可选范围</p>

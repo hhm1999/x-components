@@ -1,7 +1,7 @@
 ### table 表格
 table 表格。
 
-```html
+```vue
 <template>
   <x-table :data="tableData" :columns="tableColumns"></x-table>
 </template>

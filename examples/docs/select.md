@@ -2,7 +2,7 @@
 支持多选、搜索等功能的选择器。
 
 #### 基础用法
-```html
+```vue
 <template>
   <div :class="$style.main">
     <p class="c_title">基础</p>
@@ -77,7 +77,7 @@ export default {
 ```
 
 #### 惰性加载选项数据
-```html
+```vue
 <template>
   <div :class="$style.main">
     <x-select :label-init="labelInit" @drop-down-visibility-change="handlerDropDownVisibilityChange" v-model="valueBasis">
@@ -136,7 +136,7 @@ export default {
 </style>
 ```
 #### 远程搜索数据
-```html
+```vue
 <template>
   <div :class="$style.main">
     <x-select

@@ -1,7 +1,7 @@
 ### pop 弹窗
 覆盖整个浏览器可见区域的弹窗。
 
-```html
+```vue
 <template>
   <div :class="$style.main">
     <x-pop title="水调歌头" v-model="visible">

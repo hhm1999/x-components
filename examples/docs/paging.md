@@ -1,7 +1,7 @@
 ### paging 分页
 paging 分页、翻页等功能的组件。
 
-```html
+```vue
 <template>
   <x-paging 
     v-model="currentPage" 

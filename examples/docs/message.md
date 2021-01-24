@@ -2,7 +2,7 @@
 各种风格的消息提示。
 
 #### 点击按钮弹出各类提示
-```html
+```vue
 <template>
   <div :class="$style.main">
     <x-btn @click="normalMessage" :class="$style.btn" type="primary">普通提示</x-btn>

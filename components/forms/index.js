@@ -12,8 +12,6 @@ import timePicker from './timePicker/index.js'
 import datePicker from './datePicker/index.js'
 import dropDown from './dropDown/index.js'
 import radio from './radio/index.js'
-import imageUpload from './imageUpload/index.js'
-import fileUpload from './fileUpload/index.js'
 
 var components = [
   input,
@@ -29,9 +27,7 @@ var components = [
   timePicker,
   datePicker,
   dropDown,
-  radio,
-  imageUpload,
-  fileUpload
+  radio
 ]
 const install = Vue => {
   for (var i = 0; i < components.length; i++) {

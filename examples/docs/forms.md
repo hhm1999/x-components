@@ -2,7 +2,7 @@
 用于收集、校验其它表单组件的数据。
 
 #### 基础用法
-```html
+```vue
 <template>
   <div :class="$style.main">
     <x-forms ref="forms" :descriptor="descriptor" :model="formData">
@@ -69,7 +69,7 @@ export default {
 </style>
 ```
 #### 不同布局形式
-```html
+```vue
 <template>
   <div :class="$style.main">
     <p class="c_title">水平布局</p>

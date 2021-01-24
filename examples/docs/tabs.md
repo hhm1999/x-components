@@ -1,7 +1,7 @@
 ### tabs 标签页
 内容切换组件。
 
-```html
+```vue
 <template>
   <x-tabs v-model="currentName">
     <x-tab-pane label="标签页A" name="first">

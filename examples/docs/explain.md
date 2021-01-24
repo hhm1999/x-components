@@ -1,7 +1,7 @@
 ### explain 解释说明
 鼠标进入后弹出气泡内容。
 
-```html
+```vue
 <template>
   <div :class="$style.main">
     <x-explain placement="top" :class="$style.explain">解释说明 placement="top"</x-explain>

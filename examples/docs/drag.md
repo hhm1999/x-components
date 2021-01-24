@@ -2,7 +2,7 @@
 快速实现拖拽排序功能。
 
 #### 拖动方块可调整位置
-```html
+```vue
 <template>
   <div :class="$style.main">
     <x-drag-group @order-change="handleOrderChange">
