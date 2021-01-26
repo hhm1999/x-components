@@ -13,9 +13,7 @@ pipeline {
     stage('deploy') {
       agent any
       steps {
-        sh '''ssh -o StrictHostKeyChecking=no root@47.112.165.76
-docker rm -f xComponentsDocs || true
-docker run -d --name=xComponentsDocs --network host registry.cn-shenzhen.aliyuncs.com/x-components/docs:$BUILD_NUMBER'''
+        sh 'ssh -o StrictHostKeyChecking=no root@47.112.165.76'
       }
     }
 
