@@ -1,4 +1,3 @@
-``` html
 <template>
   <div :class="$style.main">
     <p class="c_title">自定义可选范围</p>

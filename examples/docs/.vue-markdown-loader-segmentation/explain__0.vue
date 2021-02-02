@@ -1,4 +1,3 @@
-``` html
 <template>
   <div :class="$style.main">
     <x-explain placement="top" :class="$style.explain">解释说明 placement="top"</x-explain>

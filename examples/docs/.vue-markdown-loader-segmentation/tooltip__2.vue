@@ -1,4 +1,3 @@
-``` html
 <template>
   <div :class="$style.main">
     <x-tooltip :visibility="visibility" :interaction="false" content="鼠标点击才显示" placement="right-start">

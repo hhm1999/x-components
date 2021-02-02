@@ -1,4 +1,3 @@
-``` html
 <template>
   <div :class="$style.main">
     <x-select :label-init="labelInit" @drop-down-visibility-change="handlerDropDownVisibilityChange" v-model="valueBasis">

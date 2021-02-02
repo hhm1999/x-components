@@ -1,4 +1,3 @@
-``` html
 <template>
   <div>
     <x-tooltip-confirm placement="top-start" :visibility="visibility">

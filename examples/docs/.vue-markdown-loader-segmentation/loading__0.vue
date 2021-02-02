@@ -1,4 +1,3 @@
-``` html
 <template>
   <div :class="$style.main">
     <x-loading loading-text="数据加载中···"></x-loading>

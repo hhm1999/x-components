@@ -1,4 +1,3 @@
-``` html
 <template>
   <div :class="$style.main">
     <x-btn @click="normalMessage" :class="$style.btn" type="primary">普通提示</x-btn>

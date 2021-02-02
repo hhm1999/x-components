@@ -1,4 +1,3 @@
-``` html
 <template>
   <div :class="$style.main">
     <x-forms ref="forms" :descriptor="descriptor" :model="formData">

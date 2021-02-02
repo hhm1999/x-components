@@ -1,4 +1,3 @@
-``` html
 <template>
   <x-tabs v-model="currentName">
     <x-tab-pane label="标签页A" name="first">
