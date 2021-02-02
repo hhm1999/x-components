@@ -1,7 +1,7 @@
 ### radio 单选框
 radio 单选框。 
 
-```vue
+``` html
 <template>
   <div>
     <p class="c_title">单独使用</p>

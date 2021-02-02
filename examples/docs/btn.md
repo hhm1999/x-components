@@ -1,7 +1,7 @@
 ### btn 按钮
 各类风格的按钮。
 
-```vue
+``` html
 <template>
   <div :class="$style.main">
     <x-btn :class="$style.btn">默认风格</x-btn>

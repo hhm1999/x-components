@@ -1,7 +1,7 @@
 ### switch 开关
 switch 开关。 
 
-```vue
+``` html
 <template>
   <div>
     <p class="c_title">普通</p>

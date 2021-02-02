@@ -1,3 +1,4 @@
+``` html
 <template>
   <div :class="$style.main">
     <x-btn :class="$style.btn">默认风格</x-btn>

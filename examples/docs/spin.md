@@ -1,7 +1,7 @@
 ### spin 等待过程动效
 加载中，等待中的动效。
 
-```vue
+``` html
 <template>
   <div :class="$style.main">
     <x-spin :class="$style.spin"></x-spin>

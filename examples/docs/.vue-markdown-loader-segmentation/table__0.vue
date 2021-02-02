@@ -1,3 +1,4 @@
+``` html
 <template>
   <x-table :data="tableData" :columns="tableColumns"></x-table>
 </template>

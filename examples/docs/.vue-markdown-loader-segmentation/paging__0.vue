@@ -1,3 +1,4 @@
+``` html
 <template>
   <x-paging 
     v-model="currentPage" 

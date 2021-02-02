@@ -2,7 +2,7 @@
 用于重要操作的二次确认。
 
 ### 基础用法
-```vue
+``` html
 <template>
   <div :class="$style.main">
     <div :class="$style.top">
@@ -111,7 +111,7 @@ export default {
 ```
 
 ### 通过slot方式自定义提示框的内容和操作
-```vue
+``` html
 <template>
   <div>
     <x-tooltip-confirm placement="top-start" :visibility="visibility">

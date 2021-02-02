@@ -1,3 +1,4 @@
+``` html
 <template>
   <div>
     <p class="c_title">基础用法</p>

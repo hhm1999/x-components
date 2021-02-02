@@ -1,3 +1,4 @@
+``` html
 <template>
   <div :class="$style.main">
     <p class="c_title">水平布局</p>

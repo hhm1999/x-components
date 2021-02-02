@@ -1,3 +1,4 @@
+``` html
 <template>
   <div :class="$style.main">
     <div :class="$style.container">

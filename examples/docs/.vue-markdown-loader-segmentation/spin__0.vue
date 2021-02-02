@@ -1,3 +1,4 @@
+``` html
 <template>
   <div :class="$style.main">
     <x-spin :class="$style.spin"></x-spin>

@@ -1,3 +1,4 @@
+``` html
 <template>
   <div :class="$style.main">
     <p class="c_title">通过回调函数自定义选项是否可选</p>

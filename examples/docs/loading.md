@@ -2,7 +2,7 @@
 加载中，成功，失败，重试等状态提示
 
 #### 基础用法
-```vue
+``` html
 <template>
   <div :class="$style.main">
     <x-loading loading-text="数据加载中···"></x-loading>
@@ -18,7 +18,7 @@
 ```
 
 #### 状态切换
-```vue
+``` html
 <template>
   <div :class="$style.main">
     <div :class="$style.container">

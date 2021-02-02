@@ -2,7 +2,7 @@
 支持数据惰性加载的多级选择器。
 
 #### 基础用法
-```vue
+``` html
 <template>
   <div :class="$style.main">
     <p class="c_title">基础</p>
@@ -61,7 +61,7 @@ export default {
 ```
 
 #### 选项禁用
-```vue
+``` html
 <template>
   <div :class="$style.main">
     <p class="c_title">通过回调函数自定义选项是否可选</p>
@@ -114,7 +114,7 @@ export default {
 ```
 
 #### 惰性加载数据
-```vue
+``` html
 <template>
   <div :class="$style.main">
     <p class="c_title">惰性加载数据</p>

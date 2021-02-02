@@ -1,7 +1,7 @@
 ### number 数字输入框
 number 数字输入框。
 
-```vue
+``` html
 <template>
   <div>
     <p class="c_title">基础用法</p>

@@ -1,7 +1,7 @@
 ### textarea 长文本输入框
 textarea 长文本输入框。
 
-```vue
+``` html
 <template>
   <div :class="$style.main">
     <p class="c_title">基础用法</p>

@@ -1,3 +1,4 @@
+``` html
 <template>
   <div :class="$style.main">
     <p class="c_title">基础</p>
