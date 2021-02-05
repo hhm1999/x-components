@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     handleClick () {
-      this.$emit('click')
+      !this.disabled && this.$emit('click')
     }
   },
   components: {
