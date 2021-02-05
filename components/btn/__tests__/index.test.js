@@ -28,6 +28,6 @@ describe('Btn', () => {
     })
     expect(wrapper.find('.disabled').exists()).toBe(true)
     wrapper.trigger('click')
-    expect(wrapper.vm.isClick).toBe(true)
+    expect(wrapper.vm.isClick).toBe(false)
   })
 })
