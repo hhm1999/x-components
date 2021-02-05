@@ -1,6 +1,15 @@
 pipeline {
   agent any
   stages {
+
+    stage('test') {
+      steps {
+        sh '''npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm install
+npm run test:unit'''
+      }
+    }
+
     stage('registry') {
       agent any
       steps {
@@ -16,14 +25,6 @@ pipeline {
       steps {
         sh '''docker rm -f xComponentsDocs || true
 docker run -d --name=xComponentsDocs --network host registry.cn-shenzhen.aliyuncs.com/x-components/docs:$BUILD_NUMBER'''
-      }
-    }
-
-    stage('test') {
-      steps {
-        sh '''npm install -g cnpm --registry=https://registry.npm.taobao.org
-cnpm install
-npm run test:unit'''
       }
     }
 
