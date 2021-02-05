@@ -21,7 +21,8 @@ docker run -d --name=xComponentsDocs --network host registry.cn-shenzhen.aliyunc
 
     stage('test') {
       steps {
-        sh '''npm install
+        sh '''npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm install
 npm run test:unit'''
       }
     }
