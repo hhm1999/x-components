@@ -1,8 +1,13 @@
 pipeline {
   agent any
   stages {
-
     stage('test') {
+      agent {
+        docker {
+          image 'node:14.8.0-alpine3.12'
+        }
+
+      }
       steps {
         sh '''npm install -g cnpm --registry=https://registry.npm.taobao.org
 cnpm install
