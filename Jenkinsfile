@@ -23,9 +23,14 @@ npm run test:unit'''
 
       }
       steps {
-        sh '''npm install -g cnpm --registry=https://registry.npm.taobao.org
-cnpm install
-npm run test:unit'''
+        sh '''versionOnline=$(npm view @hhm1999/x-components version)
+versionLocal=`node -p "require(\'./package.json\').version"`
+if [ "$versionOnline" != "$versionLocal" ]; then
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm install -g npm-cli-login
+NPM_USER=${NPM_USER} NPM_PASS=${NPM_PASS} NPM_EMAIL=${NPM_EMAIL} npm-cli-login
+npm publish --access public
+fi'''
       }
     }
 
