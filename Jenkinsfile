@@ -19,5 +19,12 @@ docker run -d --name=xComponentsDocs --network host registry.cn-shenzhen.aliyunc
       }
     }
 
+    stage('test') {
+      steps {
+        sh '''npm install
+npm run test:unit'''
+      }
+    }
+
   }
 }
