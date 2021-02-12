@@ -9,13 +9,14 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build-components": "vue-cli-service build --report --target lib --name x-components ./components/index.js",
-    "build-examples": "vue-cli-service build --dest docs",
+    "build-examples": "vue-cli-service build --report --dest docs",
     "start-docs": "serve docs",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@hhm1999/x-components": "^0.3.1",
     "async-validator": "^3.2.2",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
