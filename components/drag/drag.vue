@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     getBarDom () {
-      utils.dom.on(utils.dom.getChildByAttribute(this.$el, 'dragBar'), 'mousedown', this.handleMousedown)
+      utils.dom.on(utils.dom.getChildByAttribute(this.$el, 'dragbar'), 'mousedown', this.handleMousedown)
     },
     handleMousedown (e) {
       this.isMousedown = true
@@ -168,6 +168,4 @@ export default {
 </script>
 
 <style module lang="scss">
-.main{
-}
 </style>

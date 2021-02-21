@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.main" :style="styleMain">
-    <a href="javascript:" @click="$emit('click-menu-bar')" :class="$style.menu"><x-icon type="docs-menu"></x-icon></a>
+    <a href="javascript:" @mousedown.stop="" @click.stop="$emit('click-menu-bar')" :class="$style.menu"><x-icon type="docs-menu"></x-icon></a>
     <div :class="$style.name">
       <span :class="$style.color1">x</span>
       <span :class="$style.color2">-</span>

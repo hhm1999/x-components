@@ -174,7 +174,7 @@ export default {
           this.$set(this.styleArrow, 'right', leftOrRight + 'px')
         } else if (align === 'center') {
           this.$set(this.styleMain, 'left', referenceDomSizeInfo.left - (width - referenceDomSizeInfo.width) / 2 + 'px')
-          this.$set(this.styleArrow, 'left', width / 2 - 6 + 'px')
+          this.$set(this.styleArrow, 'left', width / 2 - 4 + 'px')
         }
         this.$set(this.styleOverlap, 'marginLeft', '-5px')
         this.$delete(this.styleOverlap, 'marginTop')

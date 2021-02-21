@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.main">
-    <top @click-menu-bar="handleClickMenuBar" v-x-clickoutside="handleNavsClickoutside"></top>
-    <navs :class="classNavs"></navs>
+    <top @click-menu-bar="handleClickMenuBar"></top>
+    <navs :class="classNavs" v-x-clickoutside="handleNavsClickoutside"></navs>
     <div ref="body" :class="$style.body">
       <keep-alive>
         <router-view>
@@ -33,7 +33,6 @@ export default {
   },
   methods: {
     handleClickMenuBar () {
-      console.log(1);
       this.navsShow = !this.navsShow
     },
     handleNavsClickoutside () {
@@ -81,7 +80,7 @@ export default {
     z-index: 2;
   }
   .body{
-    padding: 80px 20px 20px 270px;
+    padding: 60px 20px 20px 270px;
   }
   @media screen and (max-width: 900px){
     .navs{

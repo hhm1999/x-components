@@ -29,6 +29,7 @@
     "vuex": "^3.1.1"
   },
   "devDependencies": {
+    "@hhm1999/vue-markdown-loader": "^1.1.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-e2e-cypress": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
@@ -40,13 +41,13 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "node-sass": "^5.0.0",
-    "sass-loader": "^10.1.0",
-    "vue-template-compiler": "^2.6.11",
-    "@hhm1999/vue-markdown-loader": "^1.1.0",
+    "jquery": "^3.5.1",
     "mockjs": "^1.0.1-beta3",
+    "node-sass": "^5.0.0",
     "sass": "^1.30.0",
-    "serve": "^11.3.2"
+    "sass-loader": "^10.1.0",
+    "serve": "^11.3.2",
+    "vue-template-compiler": "^2.6.11"
   },
   "eslintIgnore": [
     "/src/assets/**/*.js",

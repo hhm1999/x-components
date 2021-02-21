@@ -2,16 +2,16 @@
   <div :class="$style.main">
     <x-drag-group @order-change="handleOrderChange">
       <x-drag
-        v-for="drag in drags" 
-        :key="drag" 
+        v-for="drag in drags"
+        :key="drag"
         :order-key="drag"
         :style="styleDrag(drag)"
-        :class="$style.drag">
+        :class="$style.drag"
+      >
         {{ drag }}
-        <div :class="$style.drag_bar" dragBar></div>
+        <div :class="$style.drag_bar" dragbar></div>
       </x-drag>
     </x-drag-group>
-    <x-file-upload v-model="value"></x-file-upload>
   </div>
 </template>
 <script>

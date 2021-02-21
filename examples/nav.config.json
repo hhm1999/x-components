@@ -101,5 +101,9 @@
   {
     "title": "tabs 标签页",
     "path": "tabs"
+  },
+  {
+    "title": "clickoutside 点击其它",
+    "path": "clickoutside"
   }
 ]
