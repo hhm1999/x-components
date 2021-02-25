@@ -4,7 +4,11 @@ import navConfig from './nav.config.json';
 
 Vue.use(Router)
 const componentsChildren = [
-  { path: '/', redirect: 'start' }
+  { path: '/', redirect: 'start' },
+  {
+    path: 'test-page/get-location-relative-window',
+    component: () => import('./page/test-page/getLocationRelativeWindow.vue')
+  }
 ]
 const loadDoc = function (navOne) {
   if (navOne.path) {
