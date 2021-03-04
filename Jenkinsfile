@@ -11,7 +11,8 @@ pipeline {
       steps {
         sh '''npm install -g cnpm --registry=https://registry.npm.taobao.org
 cnpm install
-npm run test:unit'''
+npm run test:unit
+npm run test:e2e --headless'''
       }
     }
 
