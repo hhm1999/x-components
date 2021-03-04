@@ -208,7 +208,6 @@ export default {
       } else { // 相对于根节点定位
         referenceDomSizeInfo = utils.dom.getLocationRelativeWindow(this.referenceDom)
       }
-      console.log('referenceDomSizeInfo', referenceDomSizeInfo)
       if (referenceDomSizeInfo.rightSpace > 0 && (this.$el.offsetWidth > (referenceDomSizeInfo.width + referenceDomSizeInfo.rightSpace))) {
         this.mainStyleLeft = 'auto'
         this.mainStyleRight = referenceDomSizeInfo.rightSpace

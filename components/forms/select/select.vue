@@ -244,7 +244,7 @@ export default {
       this.setValueInput()
     },
     valueInput (val) {
-      this.search && this.searchFun(val)
+      this.$refs.input.open_isFocus() && this.search && this.searchFun(val)
     }
   },
   computed: {
@@ -354,7 +354,7 @@ export default {
         return
       }
       if (this.$listeners['search-key-change']) { // 远程搜索触发searchKeyChange，搜索的逻辑交于外部
-        val && this.$emit('search-key-change', val)
+        this.$emit('search-key-change', val)
       } else { // 固定选项时的搜索逻辑
         for (let i = 0; i < this.options.length; i++) {
           if (this.options[i].label.indexOf(val) !== -1) {
@@ -375,6 +375,13 @@ export default {
             this.allOptionsHide = false
           }
         }
+        // else {
+        //   console.log('@@@@!!!!!');
+        //   this.allOptionsHide = false
+        //   for (let i = 0; i < this.options.length; i++) {
+        //     this.options[i].optionComponent.open_setVisibility(true)
+        //   }
+        // }
       }
     },
     getLabelsByValue (val) {

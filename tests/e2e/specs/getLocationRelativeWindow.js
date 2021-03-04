@@ -21,7 +21,6 @@ describe('GetLocationRelativeWindow测试', () => {
         width: 50
       }
       const location = dom.getLocationRelativeWindow($el.get(0))
-      console.log(location);
       expect(standard).to.deep.equal(location)
     })
   })

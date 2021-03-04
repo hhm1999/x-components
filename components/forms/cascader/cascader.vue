@@ -238,13 +238,21 @@ export default {
           children: searchResults
         })
       } else {
-        if (this.hierarchyOptions[0].key === 'search') {
-          this.hierarchyOptions.splice(0, this.hierarchyOptions.length, {
-            key: 'first',
-            children: this.options
-          })
-        }
+        // if (this.hierarchyOptions[0].key === 'search') {
+        //   console.log('@@@2');
+        //   this.hierarchyOptions.splice(0, this.hierarchyOptions.length, {
+        //     key: 'first',
+        //     children: this.options
+        //   })
+        // }
+        this.defaultOptionState()
       }
+    },
+    defaultOptionState () {
+      this.hierarchyOptions.splice(0, this.hierarchyOptions.length, {
+        key: 'first',
+        children: this.options
+      })
     },
     searchByKey (option, key, searchResults) {
       if (option.label.indexOf(key) !== -1) {
@@ -279,6 +287,7 @@ export default {
     },
     handlerDropDownVisibilityChange (visibility) {
       this.$emit('drop-down-visibility-change', visibility)
+      visibility && this.defaultOptionState()
     },
     selectNumber (item, layerIndex) {
       if (this.valuesXSelect && this.multiple && this.valuesXSelect) {

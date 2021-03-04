@@ -89,6 +89,9 @@ export default {
     },
     open_focus () {
       this.$refs.input.focus()
+    },
+    open_isFocus () {
+      return this.$refs.input === document.activeElement
     }
   },
   components: {

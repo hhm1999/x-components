@@ -27,7 +27,6 @@ var utils = {
             return ''
           }
         } else if (this.type === 'array') {
-          console.log('this.type', this.type, value)
           if (!value && value.length === 0) {
             return null
           }
