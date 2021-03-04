@@ -1,5 +1,5 @@
 <template>
-  <div class="x-drag" :class="classMain" ref="main">
+  <div class="x-drag" ref="main">
     <slot></slot>
   </div>
 </template>
@@ -22,12 +22,6 @@ export default {
   watch: {
   },
   computed: {
-    classMain () {
-      return {
-        [this.$style.main]: true,
-        [this.$style.c_noselect]: true
-      }
-    },
     dragGroup () {
       return utils.getParentByComponentName(this.$parent, 'x-drag-group')
     }
@@ -166,6 +160,3 @@ export default {
   }
 }
 </script>
-
-<style module lang="scss">
-</style>
