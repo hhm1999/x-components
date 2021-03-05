@@ -11,7 +11,20 @@ pipeline {
       steps {
         sh '''npm install -g cnpm --registry=https://registry.npm.taobao.org
 cnpm install
-npm run test:unit
+npm run test:e2eheadless'''
+      }
+    }
+
+    stage('test-e2e') {
+      agent {
+        docker {
+          image 'cypress/base:14.10.1'
+        }
+
+      }
+      steps {
+        sh '''npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm install
 npm run test:e2eheadless'''
       }
     }
