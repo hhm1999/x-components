@@ -8,6 +8,10 @@ const componentsChildren = [
   {
     path: 'test-page/get-location-relative-window',
     component: () => import('./page/test-page/getLocationRelativeWindow.vue')
+  },
+  {
+    path: 'test-page/free',
+    component: () => import('./page/test-page/free.vue')
   }
 ]
 const loadDoc = function (navOne) {
