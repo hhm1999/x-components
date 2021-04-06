@@ -617,10 +617,12 @@ export default {
       })
     },
     open_destroyOption (optionComponent) {
-      for (let i = 0; i < this.optionsInternalObject.length; i++) {
-        if (this.optionsInternalObject[i].optionComponent === optionComponent) {
-          this.optionsInternal.splice(i, 1)
-          break
+      if (this.optionsInternal && this.optionsInternalObject) {
+        for (let i = 0; i < this.optionsInternalObject.length; i++) {
+          if (this.optionsInternalObject[i].optionComponent === optionComponent) {
+            this.optionsInternal.splice(i, 1)
+            break
+          }
         }
       }
     }
