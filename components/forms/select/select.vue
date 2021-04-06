@@ -74,7 +74,15 @@
       @hide="dropDownShow=false"
     >
       <slot></slot>
-      <x-select-option-tip v-if="allOptionsHide">没有符合的选项</x-select-option-tip>
+      <x-select-option
+        :disabled="item.disabled"
+        :value="item.value"
+        v-for="item in options"
+        :key="item.value"
+      >
+        {{ item.label }}
+      </x-select-option>
+      <x-select-option-tip v-if="alloptionsInternalHide">没有符合的选项</x-select-option-tip>
     </x-drop-down>
   </div>
 </template>
@@ -140,6 +148,12 @@ export default {
     weChatMembersDepartmentsModel: {
       type: String,
       default: 'member'
+    },
+    options: {
+      type: Array,
+      default() {
+        return []
+      }
     }
   },
   data () {
@@ -148,13 +162,13 @@ export default {
       label: null,
       multipleSearchValue: '',
       multipleSearchInputWidth: 20,
-      allOptionsHide: false,
+      alloptionsInternalHide: false,
       disposableNoHideDropDown: false, // 在多选且可搜索状态下，选中一个选项后鼠标会聚焦到搜索框，这时候再点击表单主体不隐藏下拉框（用户可能是想聚焦搜索框而不是想隐藏）
       disposableNoTriggerSearch: false, // 在搜索框失去焦点变为原先值的时候不因为值的改变而触发搜索方法
       placeholderInternal: '',
       valueInput: null,
       dropDownShow: false,
-      options: [],
+      optionsInternal: [],
       inputHeight: 40,
       multipleItemMarginBottom: 0,
       selectState: null
@@ -206,9 +220,9 @@ export default {
         this.$refs.input.open_blur()
         this.disposableNoHideDropDown = false
       }
-      for (let i = 0; i < this.options.length; i++) {
-        this.options[i].optionComponent.open_setParentVisibility(val)
-        this.options[i].optionComponent.open_setVisibility(true)
+      for (let i = 0; i < this.optionsInternal.length; i++) {
+        this.optionsInternal[i].optionComponent.open_setParentVisibility(val)
+        this.optionsInternal[i].optionComponent.open_setVisibility(true)
       }
       if (!this.search) {
         return
@@ -228,7 +242,7 @@ export default {
         this.placeholderInternal = this.placeholder
       }
     },
-    options () {
+    optionsInternal () {
       if (this.selectState) {
         this.setSelectState(this.selectState)
       } else {
@@ -356,30 +370,30 @@ export default {
       if (this.$listeners['search-key-change']) { // 远程搜索触发searchKeyChange，搜索的逻辑交于外部
         this.$emit('search-key-change', val)
       } else { // 固定选项时的搜索逻辑
-        for (let i = 0; i < this.options.length; i++) {
-          if (this.options[i].label.indexOf(val) !== -1) {
-            this.options[i].optionComponent.open_setVisibility(true)
+        for (let i = 0; i < this.optionsInternal.length; i++) {
+          if (this.optionsInternal[i].label.indexOf(val) !== -1) {
+            this.optionsInternal[i].optionComponent.open_setVisibility(true)
           }
         }
         if (val) {
           let hideNumber = 0
-          for (let i = 0; i < this.options.length; i++) {
-            if (this.options[i].label.indexOf(val) === -1) {
+          for (let i = 0; i < this.optionsInternal.length; i++) {
+            if (this.optionsInternal[i].label.indexOf(val) === -1) {
               hideNumber++
-              this.options[i].optionComponent.open_setVisibility(false)
+              this.optionsInternal[i].optionComponent.open_setVisibility(false)
             }
           }
-          if (hideNumber === this.options.length) {
-            this.allOptionsHide = true
+          if (hideNumber === this.optionsInternal.length) {
+            this.alloptionsInternalHide = true
           } else {
-            this.allOptionsHide = false
+            this.alloptionsInternalHide = false
           }
         }
         // else {
         //   console.log('@@@@!!!!!');
-        //   this.allOptionsHide = false
-        //   for (let i = 0; i < this.options.length; i++) {
-        //     this.options[i].optionComponent.open_setVisibility(true)
+        //   this.alloptionsInternalHide = false
+        //   for (let i = 0; i < this.optionsInternal.length; i++) {
+        //     this.optionsInternal[i].optionComponent.open_setVisibility(true)
         //   }
         // }
       }
@@ -429,16 +443,16 @@ export default {
       }
     },
     getLabelForValueSingle (val) {
-      for (let i = 0; i < this.options.length; i++) {
-        if (this.options[i].value === val) {
+      for (let i = 0; i < this.optionsInternal.length; i++) {
+        if (this.optionsInternal[i].value === val) {
           let label = ''
           // if (this.isWeChatMembersDepartments) {
           //   label = {
-          //     label: this.options[i].label,
-          //     type: this.options[i].data.type
+          //     label: this.optionsInternal[i].label,
+          //     type: this.optionsInternal[i].data.type
           //   }
           // } else {
-          label = this.options[i].label
+          label = this.optionsInternal[i].label
           // }
           this.labelValueCache[val] = label
           return label
@@ -512,31 +526,31 @@ export default {
       }
     },
     setSelectState (selectedData) {
-      for (let i = 0; i < this.options.length; i++) {
-        this.options[i].optionComponent.open_setSelectState(false)
+      for (let i = 0; i < this.optionsInternal.length; i++) {
+        this.optionsInternal[i].optionComponent.open_setSelectState(false)
       }
       if ((this.multiple && !this.cascader) || (!this.multiple && this.cascader)) {
         if (selectedData) {
-          for (let i = 0; i < this.options.length; i++) {
-            if (selectedData.indexOf(this.options[i].value) > -1) {
-              this.options[i].optionComponent.open_setSelectState(true)
+          for (let i = 0; i < this.optionsInternal.length; i++) {
+            if (selectedData.indexOf(this.optionsInternal[i].value) > -1) {
+              this.optionsInternal[i].optionComponent.open_setSelectState(true)
             }
           }
         }
       } else if (this.multiple && this.cascader) {
         if (selectedData) {
-          for (let i = 0; i < this.options.length; i++) {
+          for (let i = 0; i < this.optionsInternal.length; i++) {
             for (let j = 0; j < selectedData.length; j++) {
-              if (selectedData[j].indexOf(this.options[i].value) > -1) {
-                this.options[i].optionComponent.open_setSelectState(true)
+              if (selectedData[j].indexOf(this.optionsInternal[i].value) > -1) {
+                this.optionsInternal[i].optionComponent.open_setSelectState(true)
               }
             }
           }
         }
       } else {
-        for (let i = 0; i < this.options.length; i++) {
-          if (this.options[i].value === selectedData) {
-            this.options[i].optionComponent.open_setSelectState(true)
+        for (let i = 0; i < this.optionsInternal.length; i++) {
+          if (this.optionsInternal[i].value === selectedData) {
+            this.optionsInternal[i].optionComponent.open_setSelectState(true)
             break
           }
         }
@@ -595,7 +609,7 @@ export default {
       }
     },
     open_addOption (value, label, data, optionComponent) {
-      this.options.push({
+      this.optionsInternal.push({
         value: value,
         label: label,
         data: data,
@@ -603,9 +617,9 @@ export default {
       })
     },
     open_destroyOption (optionComponent) {
-      for (let i = 0; i < this.options.length; i++) {
-        if (this.options[i].optionComponent === optionComponent) {
-          this.options.splice(i, 1)
+      for (let i = 0; i < this.optionsInternalObject.length; i++) {
+        if (this.optionsInternalObject[i].optionComponent === optionComponent) {
+          this.optionsInternal.splice(i, 1)
           break
         }
       }

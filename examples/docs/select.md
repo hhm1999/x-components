@@ -38,6 +38,9 @@
         {{ item.label }}
       </x-select-option>
     </x-select>
+    <p class="c_title">数据版</p>
+    <x-select :options="options" v-model="valueDatas">
+    </x-select>
   </div>
 </template>
 <script>
@@ -47,6 +50,7 @@ export default {
       valueMultiple: [ 1, 3 ],
       valueBasis: 2,
       valueSearch: 3,
+      valueDatas: null,
       options: [
         {
           label: '选项1',
