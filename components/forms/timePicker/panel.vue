@@ -95,9 +95,9 @@ export default {
   mounted () {
   },
   watch: {
-    value (val) {
-      console.log('########', this.type, val);
-    },
+    // value (val) {
+    //   console.log('########', this.type, val);
+    // },
     selectableRange: {
       handler () {
         this.handleSelectedDisabled()

@@ -332,7 +332,7 @@ export default {
         this.$emit('input', null)
         return
       }
-      console.log(yearNumber)
+      // console.log(yearNumber)
       this.state = this.type
       let currentMoment = null
       if (this.calendarHeaderDate) {

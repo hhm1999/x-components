@@ -83,13 +83,8 @@ export default {
       this.valueInternal = val
     },
     valueInternal (val) {
-      // var legalNumber = this.getLegalNumber(val)
-      // this.valueInternal = legalNumber
-      // console.log(val)
-      // console.log(val - 0)
-      // console.log(val)
-      if (val === null) {
-        this.$emit('input', null)
+      if (val === null || val === undefined || val === '') {
+        this.$emit('input', undefined)
       } else {
         this.$emit('input', this.getLegalNumber(val - 0))
       }
@@ -198,6 +193,7 @@ export default {
     background-color: $background-color-base;
     box-sizing: border-box;
     border-left: 1px solid $border-color-base;
+    color: $color-text-primary;
     &:hover{
       color: $color-primary;
     }

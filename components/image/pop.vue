@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
     <div v-show="visible" :style="mainStyle" :class="$style.main">
-      <div @click="handelClose" :class="$style.close"><x-icon type="image-pop-close"></x-icon></div>
+      <div @click="handelClose" :class="$style.close"><icon type="image-pop-close"></icon></div>
       <img :class="$style.img" ref="img" :style="imgStyle" :src="url" />
       <div @click="handelClose" :class="$style.mask"></div>
     </div>
@@ -9,6 +9,8 @@
 </template>
 <script>
 import utils from '../utils/utils.js'
+import icon from '../icon/icon.vue';
+
 export default {
   name: 'message',
   data () {
@@ -67,6 +69,7 @@ export default {
   beforeDestroy () {
   },
   components: {
+    icon,
   }
 }
 </script>

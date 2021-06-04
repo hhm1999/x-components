@@ -33,7 +33,7 @@ export default {
     },
     value: {
       type: [String, Number],
-      default: null
+      default: undefined
     },
     disabled: {
       type: Boolean,
@@ -56,7 +56,7 @@ export default {
   },
   data () {
     return {
-      valueInternal: null
+      valueInternal: undefined
     }
   },
   created () {
@@ -67,7 +67,11 @@ export default {
       this.valueInternal = val
     },
     valueInternal (val) {
-      this.$emit('input', val)
+      if (val === '' || val === undefined) {
+        this.$emit('input', undefined)
+      } else {
+        this.$emit('input', val)
+      }
     }
   },
   computed: {

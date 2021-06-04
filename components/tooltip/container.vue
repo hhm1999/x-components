@@ -12,7 +12,7 @@
 import utils from '../utils/utils.js'
 import scssVariable from '../assets/css/variableJs.scss'
 export default {
-  name: 'x-tip',
+  name: 'x-tip1',
   props: {
     placement: {
       type: String,

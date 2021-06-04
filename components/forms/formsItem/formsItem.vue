@@ -1,6 +1,6 @@
 <template>
-  <div :class="classMain">
-    <div v-if="label" :class="classLabel">
+  <div :class="classMain" :style="styleMain">
+    <div v-if="label" :style="styleLabel" :class="classLabel">
       {{ label }}：
       <x-explain v-if="explain" placement="right"><span v-html="explain"></span></x-explain>
     </div>
@@ -43,6 +43,10 @@ export default {
     widthForm: {
       type: String,
       default: undefined
+    },
+    labelWidth: {
+      type: Number,
+      default: 140,
     }
   },
   data () {
@@ -61,6 +65,9 @@ export default {
   watch: {
     value: {
       handler (val, oldVal) {
+        // if (utils.isNullOrUndefined(val) && utils.isNullOrUndefined(oldVal)) {
+        //   return
+        // }
         if (val === null && oldVal === null) {
           return
         }
@@ -90,6 +97,20 @@ export default {
     //   }
     //   return recursive(this.$children)
     // },
+    styleMain () {
+      const style = {}
+      if (this.horizontal && this.hasLabel) {
+        style.paddingLeft = (this.labelWidth + 10) + 'px'
+      }
+      return style
+    },
+    styleLabel () {
+      const style = {}
+      if (this.horizontal && this.hasLabel) {
+        style.width = this.labelWidth + 'px'
+      }
+      return style
+    },
     classLabel () {
       return {
         [this.$style.label]: true,
@@ -131,13 +152,22 @@ export default {
       }
       return null
     },
+    isHorizontal () {
+      return this.horizontal && !this.bothSides
+    },
+    isVertical () {
+      return !this.horizontal && !this.bothSides
+    },
+    hasLabel () {
+      return !!this.label;
+    },
     classMain () {
       return {
         [this.$style.main]: true,
-        [this.$style.horizontal]: this.horizontal && !this.bothSides,
-        [this.$style.vertical]: !this.horizontal && !this.bothSides,
+        [this.$style.horizontal]: this.isHorizontal,
+        [this.$style.vertical]: this.isVertical,
         [this.$style['both-sides']]: this.bothSides,
-        [this.$style['has-label']]: !!this.label
+        [this.$style['has-label']]: this.hasLabel
       }
     }
   },
@@ -225,7 +255,7 @@ export default {
     .label{
       width: 100%;
       // height: 30px;
-      line-height: 20px;
+      line-height: 40px;
       margin-bottom: 5px;
       // position: absolute;
       // top: 0px;

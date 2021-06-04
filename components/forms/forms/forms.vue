@@ -5,7 +5,7 @@
 </template>
 <script>
 // import AsyncValidator from 'async-validator'
-import utils from '../../utils/utils.js'
+// import utils from '../../utils/utils.js'
 export default {
   name: 'x-forms',
   componentName: 'x-forms',
@@ -36,19 +36,17 @@ export default {
   },
   methods: {
     open_validate (key) {
-      return new Promise((resolve, reject) => {
+      let that = this
+      return new Promise(function(resolve, reject) {
         let promises = []
-        for (let i = 0; i < this.formsItems.length; i++) {
-          promises.push(this.formsItems[i].open_validate())
+        for (let i = 0; i < that.formsItems.length; i++) {
+          promises.push(that.formsItems[i].open_validate())
         }
-        utils.promise.all(promises).then(function () {
+        Promise.all(promises).then(function () {
           resolve(key)
-        }).catch(function(e){
-          if (key) {
-            reject(key, e)
-          } else {
-            reject(e)
-          }
+        }).catch(function(){
+          // console.log(e)
+          reject(key)
         })
       })
     },
