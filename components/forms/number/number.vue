@@ -173,6 +173,7 @@ export default {
   @include inputAndTextarea;
   display: inline-block;
   height: 40px;
+  width: 150px !important;
   position: relative;
   // overflow: hidden;
   &:hover{

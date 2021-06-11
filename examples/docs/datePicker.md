@@ -17,7 +17,7 @@
     <x-date-picker time v-model="valueTime"></x-date-picker>
     <p class="c_title">自定义日期格式</p>
     <x-date-picker time format="YYYY年MM月DD日 HH时mm分ss秒" v-model="valueFormat"></x-date-picker>
-    <p class="c_title">初始日历日期</p>
+    <p class="c_title">初始日历日期{{ valueInitDate + '' }}</p>
     <x-date-picker :init-date="initDate" v-model="valueInitDate"></x-date-picker>
     <p class="c_title">禁用</p>
     <x-date-picker disabled v-model="valueDisabled"></x-date-picker>
@@ -31,7 +31,7 @@ export default {
       valueTime: '2023-12-14 12:11:13',
       valueDisabled: '2030-06-05',
       valueRangeModel: [ '2022-01-01 01:04:30', '2022-02-20 09:12:40' ],
-      valueInitDate: null,
+      valueInitDate: undefined,
       valueYears: '2035',
       valueMonths: '2070-06',
       valueFormat: '2021年01月15日 04时05分05秒',
