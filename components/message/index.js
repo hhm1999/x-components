@@ -50,6 +50,7 @@ export default {
       }
       instance.open_setData(options)
       instance.open_show(top)
+      return instance;
     }
     Vue.prototype.$message = message
   }

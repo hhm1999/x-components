@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition name="x-components-fade">
     <div
       :class="mainClass"
       :style="mainStyle"
@@ -89,7 +89,12 @@ export default {
     },
     open_show (top) {
       this.mainTop = top
-      this.visible = true
+      this.$nextTick(() => {
+        this.visible = true
+      });
+    },
+    open_hide () {
+      this.close()
     },
     // destroyElement () {
     //   that.clearTimer()
@@ -135,7 +140,8 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.fade-enter-active, .fade-leave-active {
+.x-components-fade-enter-active, .x-components-fade-leave-active {
+  transition: opacity .2s,transform .3s,top .3s;
   opacity: 0;
   transform: translate(-50%,-100%);
 }
@@ -148,7 +154,6 @@ export default {
   left: 50%;
   // top: 20px;
   transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
   background-color:$color-white;
   border-width: 1px;
   border-style: solid;

@@ -1,7 +1,7 @@
 <template>
   <div :class="classMain" :style="styleMain">
     <div v-if="label" :style="styleLabel" :class="classLabel">
-      {{ label }}：
+      {{ label }}
       <x-explain v-if="explain" placement="right"><span v-html="explain"></span></x-explain>
     </div>
     <div :style="slotStyle" :class="$style.slot">

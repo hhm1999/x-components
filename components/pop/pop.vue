@@ -134,6 +134,7 @@ export default {
 <style module lang="scss">
 .main{
   color: $color-text-regular;
+  position: absolute;
   .mask {
     position: fixed;
     top: 0;

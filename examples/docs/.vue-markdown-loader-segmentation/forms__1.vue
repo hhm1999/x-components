@@ -4,6 +4,9 @@
     <x-forms-item horizontal label="姓名">
       <x-input></x-input>
     </x-forms-item>
+    <x-forms-item horizontal label="婚否">
+      <x-switch></x-switch>
+    </x-forms-item>
     <p class="c_title">上下布局</p>
     <x-forms-item label="姓名">
       <x-input></x-input>

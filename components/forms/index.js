@@ -12,6 +12,7 @@ import timePicker from './timePicker/index.js'
 import datePicker from './datePicker/index.js'
 import dropDown from './dropDown/index.js'
 import radio from './radio/index.js'
+// import richEditor from './richEditor/index.js'
 
 var components = [
   input,
@@ -27,7 +28,8 @@ var components = [
   timePicker,
   datePicker,
   dropDown,
-  radio
+  radio,
+  // richEditor,
 ]
 const install = Vue => {
   for (var i = 0; i < components.length; i++) {

@@ -31,7 +31,11 @@ export default {
     discriminateMobile: {
       type: Boolean,
       default: false
-    }
+    },
+    priorityDirectionVertical: {
+      type: String,
+      default: 'bottom'
+    },
   },
   data () {
     return {
@@ -70,7 +74,10 @@ export default {
         this.zIndex = utils.zIndex.nextZIndex()
         if (!this.isAppend) {
           this.isAppend = true
-          this.$parent.popperElm = this.$el
+          if (!this.$parent.popperElm) {
+            this.$parent.popperElm = [];
+          }
+          this.$parent.popperElm.push(this.$el);
           this.$nextTick(() => {
             // that.dropDownContainer = utils.dom.getParentByAttribute(that.$el, 'drop-down-container')
             this.dropDownContainer = null
@@ -215,14 +222,26 @@ export default {
         this.mainStyleRight = 'auto'
         this.mainStyleLeft = referenceDomSizeInfo.left
       }
-      if (referenceDomSizeInfo.bottomSpace < this.$el.offsetHeight && referenceDomSizeInfo.bottomSpace < referenceDomSizeInfo.topSpace) { // 输入框底部空间小于下拉组件的高度,且底部空间小于顶部空间
-        this.showDirectionVertical = 'top'
-        this.mainStyleBottom = referenceDomSizeInfo.bottom
-        this.mainStyleTop = 'auto'
+      if (this.priorityDirectionVertical === 'bottom') {
+        if (referenceDomSizeInfo.bottomSpace < this.$el.offsetHeight && referenceDomSizeInfo.bottomSpace < referenceDomSizeInfo.topSpace) { // 输入框底部空间小于下拉组件的高度,且底部空间小于顶部空间
+          this.showDirectionVertical = 'top'
+          this.mainStyleBottom = referenceDomSizeInfo.bottom
+          this.mainStyleTop = 'auto'
+        } else {
+          this.showDirectionVertical = 'bottom'
+          this.mainStyleTop = referenceDomSizeInfo.top + referenceDomSizeInfo.height
+          this.mainStyleBottom = 'auto'
+        }
       } else {
-        this.showDirectionVertical = 'bottom'
-        this.mainStyleTop = referenceDomSizeInfo.top + referenceDomSizeInfo.height
-        this.mainStyleBottom = 'auto'
+        if (referenceDomSizeInfo.topSpace < this.$el.offsetHeight && referenceDomSizeInfo.topSpace < referenceDomSizeInfo.bottomSpace) { // 输入框底部空间小于下拉组件的高度,且底部空间小于顶部空间
+          this.showDirectionVertical = 'bottom'
+          this.mainStyleTop = referenceDomSizeInfo.top + referenceDomSizeInfo.height
+          this.mainStyleBottom = 'auto'
+        } else {
+          this.showDirectionVertical = 'top'
+          this.mainStyleBottom = referenceDomSizeInfo.bottom
+          this.mainStyleTop = 'auto'
+        }
       }
       if (utils.isMobile() || this.width === 'matchReferenceDom') {
         this.mainStyleWidth = referenceDomSizeInfo.width
@@ -234,7 +253,16 @@ export default {
       this.clearKeepPositionSetTimeout()
       this.referenceDom = null
       this.dropDownContainer = null
-      this.$parent.popperElm = null
+      let index;
+      if (this.$parent.popperElm) {
+        for (let i = 0; i < this.$parent.popperElm.length; i++) {
+          if (this.$el === this.$parent.popperElm[i]) {
+            index = i;
+            break;
+          }
+        }
+        this.$parent.popperElm.splice(index, 1);
+      }
       this.parentNode && this.parentNode.removeChild(this.$el)
       this.parentNode = null
       this.isAppend = false

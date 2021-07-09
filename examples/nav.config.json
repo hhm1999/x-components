@@ -39,6 +39,10 @@
         "path": "textarea"
       },
       {
+        "title": "richEditor 富文本编辑器",
+        "path": "richEditor"
+      },
+      {
         "title": "number 数字输入框",
         "path": "number"
       },

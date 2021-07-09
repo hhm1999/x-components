@@ -57,7 +57,7 @@ export default {
 .main{
   // padding: 2px;
   box-sizing: border-box;
-  height: 26px;
+  // height: 26px;
   // width: 48px;
   position: relative;
   vertical-align: middle;

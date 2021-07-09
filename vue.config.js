@@ -21,7 +21,7 @@ module.exports = {
       .end()
   },
   devServer: {
-    port: 1999
+    port: 1991
   },
   css: {
     extract: false,
