@@ -214,14 +214,16 @@ export default {
   methods: {
     disabledDayInternal (dayMoment) {
       let disabledYear = false
-      if (typeof this.disabledYear === 'function') {
-        disabledYear = this.disabledYear(dayMoment)
-      }
       let disabledMonth = false
-      if (typeof this.disabledMonth === 'function') {
-        disabledMonth = this.disabledMonth(dayMoment)
-      }
       let disabledDay = false
+      if (!this.rangeModel) {
+        if (typeof this.disabledYear === 'function') {
+          disabledYear = this.disabledYear(dayMoment)
+        }
+        if (typeof this.disabledMonth === 'function') {
+          disabledMonth = this.disabledMonth(dayMoment)
+        }
+      }
       if (typeof this.disabledDay === 'function') {
         disabledDay = this.disabledDay(dayMoment)
       }

@@ -292,6 +292,7 @@ export default {
         M: dayObj.month - 1,
         d: dayObj.day
       })
+      // console.log(this.disabledDay(dayObj.moment));
       dayObj.disabled = typeof this.disabledDay === 'function' && this.disabledDay(dayObj.moment)
       dayObj.isToday = dayObj.moment.isSame(moment(), 'day')
       return dayObj

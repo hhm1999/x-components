@@ -581,28 +581,46 @@ export default {
       stopWatch,
       anotherStopWatch
     ) {
+      // console.log(type,
+      //   val,
+      //   oldVal,
+      //   valueCopy,
+      //   precedenceValueInput,
+      //   anotherValueInput,
+      //   anotherValue,
+      //   anotherValueCopy,
+      //   stopWatch,
+      //   anotherStopWatch);
       if (this[stopWatch]) {
+        console.log(stopWatch);
         this[stopWatch] = false
         return
       }
       if (val && oldVal && (val.toString() === oldVal.toString())) {
         return
       }
+      console.log(val);
       if (val && val.length >= 1) {
+        console.log(123);
         if (!this.valueInputStart && !this.valueInputEnd) {
+          console.log(1);
           this[precedenceValueInput] = val[0]
           if (this[anotherValue]) {
+            console.log('1-1');
             this[anotherValue].splice(0, this[anotherValue].length)
             this[anotherValue].push(val[0])
           } else {
+            console.log('1-2', anotherValue, val[0]);
             this[anotherValue] = [val[0]]
           }
           if (val.length > 1) {
+            console.log('1-3');
             val.splice(1, val.length)
             this[stopWatch] = true
           }
           this[anotherStopWatch] = true
         } else if (this.valueInputStart && this.valueInputEnd) {
+          console.log(2);
           this.timeRangeValue = null
           this[precedenceValueInput] = val[val.length - 1]
           this[anotherValueInput] = null
@@ -618,6 +636,7 @@ export default {
           this[anotherValue].push(this[precedenceValueInput])
           this[anotherStopWatch] = true
         } else {
+          console.log(3);
           if (moment(val[0], this.format).isBefore(moment(val[1], this.format))) {
             this.valueInputEnd = val[1]
             this.valueInputStart = val[0]
@@ -634,6 +653,7 @@ export default {
           this[anotherStopWatch] = true
         }
       } else {
+        console.log(456);
         this.valueInputEnd = null
         this.valueInputStart = null
       }
@@ -782,14 +802,16 @@ export default {
       if (typeof this.disabledDay === 'function') {
         disabled = this.disabledDay(dayMoment)
       }
-      return disabled || this.calendarHeaderDateEndMoment.isSameOrBefore(dayMoment, 'month')
+      // return disabled || this.calendarHeaderDateEndMoment.isSameOrBefore(dayMoment, 'month')
+      return disabled
     },
     disabledDayEnd (dayMoment) {
       let disabled = false
       if (typeof this.disabledDay === 'function') {
         disabled = this.disabledDay(dayMoment)
       }
-      return disabled || this.calendarHeaderDateStartMoment.isSameOrAfter(dayMoment, 'month')
+      return disabled
+      // return disabled || this.calendarHeaderDateStartMoment.isSameOrAfter(dayMoment, 'month')
     },
     disabledYearStart (yearMoment) {
       let disabled = false

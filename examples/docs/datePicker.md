@@ -31,7 +31,7 @@ export default {
       valueTime: '2023-12-14 12:11:13',
       valueDisabled: '2030-06-05',
       valueRangeModel: [ '2022-01-01 01:04:30', '2022-02-20 09:12:40' ],
-      valueInitDate: undefined,
+      valueInitDate: '2030-06-05',
       valueYears: '2035',
       valueMonths: '2070-06',
       valueFormat: '2021年01月15日 04时05分05秒',
