@@ -5,4 +5,4 @@
 npm i @hhm1999/x-components --save
 ```
 
-##### 详见：[中文文档](https://x.gugugame.com/)
+##### 详见：[中文文档](https://hhm1999.github.io/x-components/)
