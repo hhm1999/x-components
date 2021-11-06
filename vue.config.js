@@ -1,6 +1,7 @@
 let Webpack = require('webpack');
 
 module.exports = {
+  publicPath: '/x-components/',
   configureWebpack: {
     plugins: [
       new Webpack.IgnorePlugin(/\.\/locale/, /moment/), // 忽略moment的语言包打包
