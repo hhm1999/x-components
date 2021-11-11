@@ -12,7 +12,7 @@ export default {
             top = top + 15 + instanceArray[index].open_getHeight()
             // locationIndex ++
           } else {
-            if (!instance) {
+            if (!instance && !instanceArray[index].open_getVisibleUi()) {
               instance = instanceArray[index]
             }
           }

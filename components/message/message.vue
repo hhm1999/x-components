@@ -38,6 +38,7 @@ export default {
     return {
       showClose: false,
       visible: false,
+      visibleUi: false,
       timer: null,
       duration: 3000,
       message: '',
@@ -91,6 +92,7 @@ export default {
       this.mainTop = top
       this.$nextTick(() => {
         this.visible = true
+        this.visibleUi = true
       });
     },
     open_hide () {
@@ -106,6 +108,9 @@ export default {
     open_getVisible () {
       return this.visible
     },
+    open_getVisibleUi () {
+      return this.visibleUi
+    },
     open_getHeight () {
       return this.$refs.main.offsetHeight
     },
@@ -119,9 +124,14 @@ export default {
       return this.mainTop
     },
     close () {
-      this.clearTimer()
-      this.visible = false
-      this.$emit('hide', this.mainTop, this.$refs.main.offsetHeight)
+      if (this.visible) {
+        this.clearTimer()
+        this.visible = false
+        this.$emit('hide', this.mainTop, this.$refs.main.offsetHeight)
+        setTimeout(() => {
+          this.visibleUi = false
+        }, 300)
+      }
     },
     clearTimer () {
       this.timer && clearTimeout(this.timer)

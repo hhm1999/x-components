@@ -31,6 +31,11 @@ export default {
   },
   created () {
   },
+  mounted () {
+    // if (this.$slots.label && this.$slots.label[0]) {
+    //   console.log(this.$slots.label[0]);
+    // }
+  },
   watch: {
     active (val) {
       if (val) {

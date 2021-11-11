@@ -1,22 +1,38 @@
-<template>
-  <div
-    :class="$style.main"
-    :style="styleMain"
-  >
-    <div
-      :class="classItems(pane.name)"
-      @click="handlerBarClick(pane.name)"
-      :key="pane.name"
-      v-for="pane in panes"
-    >
-      {{ pane.label }}
-    </div>
-  </div>
-</template>
 <script>
 // import utils from '../utils/utils.js'
 export default {
   name: 'x-tab-pane',
+  render(createElement) {
+    const items = [];
+    for (let i = 0; i < this.panes.length; i++) {
+      const name = this.panes[i].name
+      items.push(createElement(
+        'div',
+        {
+          class: this.classItems(name),
+          key: name,
+          on: {
+            click: () => {
+              this.handlerBarClick(name)
+            },
+          },
+        },
+        [
+          this.panes[i].$slots.label || this.panes[i].label,
+        ],
+      ))
+    }
+    return createElement(
+      'div',
+      {
+        class: {
+          [this.$style.main]: true,
+        },
+        style: this.styleMain,
+      },
+      items,
+    )
+  },
   props: {
     panes: {
       type: Array,

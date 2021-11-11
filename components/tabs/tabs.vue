@@ -7,6 +7,7 @@
       @switch="handlerNavSwitch"
       :currentName="value"
       :panes="panes"
+      ref="tabNav"
     >
     </tabNav>
     <div :class="$style.slot">
@@ -35,6 +36,10 @@ export default {
     barHide: {
       type: Boolean,
       default: false
+    },
+    forceUpdateNav: {
+      type: Number,
+      default: 0
     }
   },
   data () {
@@ -46,6 +51,11 @@ export default {
   },
   mounted () {
     this.getPaneInstances()
+  },
+  watch: {
+    forceUpdateNav() {
+      this.$refs.tabNav.$forceUpdate();
+    },
   },
   computed: {
   },
