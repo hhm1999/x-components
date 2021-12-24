@@ -5,8 +5,8 @@
         <x-spin v-if="type === 'loading'" :size="size"></x-spin>
         <x-icon v-else :style="iconStyle" :class="iconClass" :type="iconType"></x-icon>
         <div :style="textStyle" :class="$style.text">
-          <template v-if="type === 'loading'">
-            {{ loadingText }}
+          <template v-if="Object.keys($slots).length <= 0">
+            {{ text }}
           </template>
           <template v-else>
             <slot></slot>
@@ -29,7 +29,7 @@ export default {
       type: String,
       default: 'loading'
     },
-    loadingText: {
+    text: {
       type: String,
       default: '加载中 ···'
     },
@@ -47,6 +47,7 @@ export default {
     }
   },
   created () {
+    console.log(this.$slots);
   },
   computed: {
     iconType () {
