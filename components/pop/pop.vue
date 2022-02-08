@@ -9,7 +9,7 @@
       <div :class="$style.body" :style="styleBody">
         <slot></slot>
       </div>
-      <div :class="$style.footer">
+      <div v-if="footerVisible" :class="$style.footer">
         <slot name="footer"></slot>
       </div>
     </div>
@@ -48,10 +48,18 @@ export default {
   data () {
     return {
       maskZIndex: utils.zIndex.nextZIndex(),
-      popZIndex: utils.zIndex.nextZIndex()
+      popZIndex: utils.zIndex.nextZIndex(),
+      footerVisible: true,
     }
   },
   created () {
+  },
+  updated() {
+    if (this.$slots.footer && this.$slots.footer.length >= 1) {
+      this.footerVisible = true;
+    } else {
+      this.footerVisible = false;
+    }
   },
   watch: {
     visible (val) {
@@ -69,11 +77,9 @@ export default {
       return !!this.title
     },
     bodyHeight () {
-      if (this.hasTitle) {
-        return this.popHeight - 50 - 60
-      } else {
-        return this.popHeight - 60
-      }
+      let titleHeight = this.hasTitle ? 50 : 0
+      let footerHeight = this.footerVisible ? 60 : 0
+      return this.popHeight - titleHeight - footerHeight
     },
     popWidth () {
       if (this.width) {
