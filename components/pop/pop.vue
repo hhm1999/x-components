@@ -54,12 +54,11 @@ export default {
   },
   created () {
   },
-  updated() {
-    if (this.$slots.footer && this.$slots.footer.length >= 1) {
-      this.footerVisible = true;
-    } else {
-      this.footerVisible = false;
-    }
+  mounted () {
+    this.setFooterVisible();
+  },
+  updated () {
+    this.setFooterVisible();
   },
   watch: {
     visible (val) {
@@ -124,6 +123,13 @@ export default {
   methods: {
     hide () {
       this.$emit('change', false)
+    },
+    setFooterVisible () {
+      if (this.$slots.footer && this.$slots.footer.length >= 1) {
+        this.footerVisible = true;
+      } else {
+        this.footerVisible = false;
+      }
     }
   },
   components: {
