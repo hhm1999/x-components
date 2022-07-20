@@ -58,11 +58,11 @@ export default {
   },
   data () {
     return {
-      valueInternal: null
+      valueInternal: this.value
     }
   },
   created () {
-    this.valueInternal = this.value
+    // this.valueInternal = this.value
   },
   watch: {
     max () {

@@ -1,7 +1,8 @@
 <template>
   <div :class="$style.main">
-    <x-tooltip :visibility="visibility" :interaction="false" content="鼠标点击才显示" placement="right-start">
-      <x-btn @click="visibility = !visibility" :class="$style.btn">点击{{!visibility ? '显示' : '关闭' }}</x-btn>
+    <x-tooltip :visibility="visibility" :interaction="false" placement="right-start">
+      <div slot="content">{{ content }}</div>
+      <x-btn @click="click" :class="$style.btn">点击{{!visibility ? '显示' : '关闭' }}</x-btn>
     </x-tooltip>
   </div>
 </template>
@@ -9,7 +10,16 @@
 export default {
   data () {
     return {
-      visibility: false
+      visibility: false,
+      content: '123',
+    }
+  },
+  methods: {
+    click() {
+      this.visibility = true
+      setTimeout(() => {
+        this.content = '456'
+      }, 1000)
     }
   }
 }

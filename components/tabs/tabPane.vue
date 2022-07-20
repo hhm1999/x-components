@@ -49,6 +49,9 @@ export default {
       return active
     }
   },
+  beforeDestroy() {
+    this.$parent.openRemovePane(this);
+  },
   methods: {
   },
   components: {

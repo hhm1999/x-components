@@ -35,6 +35,10 @@ export default {
         {
           key: 'gender',
           title: '性别'
+        },
+        {
+          key: 'x-action',
+          title: '操作',
         }
       ]
     }

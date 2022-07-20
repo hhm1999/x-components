@@ -20,6 +20,18 @@ module.exports = {
         demoContainerComponentName: 'vueMarkdownLoaderDemoContainer'
       })
       .end()
+    // config.module.rule('scss').oneOf('vue-modules').use('css-loader').tap(options => {
+    //   // 修改它的选项...
+    //   return {
+    //     sourceMap: false,
+    //     importLoaders: 2,
+    //     modules: {
+    //       localIdentName: '[name]_[local]_[hash:base64:5]',
+    //       auto: () => true,
+    //       compileType: 'icss'
+    //     }
+    //   }
+    // })
   },
   devServer: {
     port: 1991
@@ -27,6 +39,19 @@ module.exports = {
   css: {
     extract: false,
     loaderOptions: {
+      css: {
+        modules: {
+          mode: (resourcePath) => {
+            if (/variableJs.scss$/i.test(resourcePath)) {
+              return 'icss'
+            }
+            if (/github-markdown.scss$/i.test(resourcePath) || /global.scss$/i.test(resourcePath)) {
+              return "global";
+            }
+            return 'local'
+          },
+        }
+      },
       sass: {
         additionalData: `
           @import "@/../components/assets/css/variable.scss";

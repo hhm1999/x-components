@@ -2,7 +2,7 @@
   "name": "@hhm1999/x-components",
   "main": "dist/x-components.umd.min.js",
   "description": "基于Vue的组件库",
-  "version": "0.5.7",
+  "version": "0.6.3",
   "files": [
     "dist/*"
   ],
@@ -26,25 +26,26 @@
     "medium-editor": "^5.23.3",
     "moment": "^2.24.0",
     "rgb-hex": "^4.0.0",
-    "vue": "^2.6.11",
+    "vue": "^2.7.7",
     "vue-color": "^2.8.1",
     "vue-router": "^3.1.3",
-    "vuex": "^3.1.1"
+    "vuex": "^3.1.1",
+    "webpack": "^5.0.0"
   },
   "devDependencies": {
     "@hhm1999/vue-markdown-loader": "^1.1.0",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-e2e-cypress": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-unit-jest": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-e2e-cypress": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-plugin-router": "^5.0.8",
+    "@vue/cli-plugin-unit-jest": "^5.0.8",
+    "@vue/cli-plugin-vuex": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
     "@vue/test-utils": "^1.0.3",
-    "babel-eslint": "^10.1.0",
+    "@babel/eslint-parser": "^7.18.9",
     "babel-plugin-transform-remove-console": "^6.9.4",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint": "^8.20.0",
+    "eslint-plugin-vue": "^9.2.0",
     "jquery": "^3.5.1",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^5.0.0",
@@ -71,10 +72,14 @@
       "eslint:recommended"
     ],
     "parserOptions": {
-      "parser": "babel-eslint"
+      "parser": "@babel/eslint-parser"
     },
     "rules": {
+      "vue/one-component-per-file": "off",
+      "vue/component-definition-name-casing": "off",
       "no-console": "off",
+      "vue/multi-word-component-names": "off",
+      "no-dupe-else-if": "off",
       "no-irregular-whitespace": "error",
       "no-extra-semi": "error",
       "no-multi-spaces": [

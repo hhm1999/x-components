@@ -56,11 +56,11 @@ export default {
   },
   data () {
     return {
-      valueInternal: undefined
+      valueInternal: this.value
     }
   },
   created () {
-    this.valueInternal = this.value
+    // this.valueInternal = this.value
   },
   watch: {
     value (val) {

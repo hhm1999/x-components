@@ -60,6 +60,14 @@ export default {
   computed: {
   },
   methods: {
+    openRemovePane(pane) {
+      for (let i = 0; i < this.panes.length; i++) {
+        if (this.panes[i] === pane) {
+          this.panes.splice(i, 1);
+          break;
+        }
+      }
+    },
     handlerNavSwitch (paneName) {
       this.$emit('input', paneName)
     },

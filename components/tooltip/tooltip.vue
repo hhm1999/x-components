@@ -36,6 +36,9 @@ export default {
     }
   },
   watch: {
+    content() {
+      this.containerComponent.$forceUpdate()
+    },
     visibility: {
       handler (val) {
         if (this.isDisabled) {
@@ -80,10 +83,6 @@ export default {
             }
           },
           this.content || this.$slots.content)
-      },
-      data: function () {
-        return {
-        }
       },
       methods: {
         open_setReferenceDom (dom) {

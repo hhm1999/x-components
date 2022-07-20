@@ -206,6 +206,7 @@ export default {
     position: absolute;
     align-items:center;
     justify-content:center;
+    font-size: 14px;
   }
   .icon_close{
     cursor: pointer;
@@ -217,6 +218,7 @@ export default {
     display: flex;
     align-items:center;
     justify-content:center;
+    font-size: 14px;
     .icon{
       color: $color-text-placeholder;
       font-size: 12px;
