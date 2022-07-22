@@ -78,7 +78,7 @@
         :disabled="item.disabled"
         :value="item.value"
         v-for="item in options"
-        :key="item.value"
+        :key="item.value + item.label"
       >
         {{ item.label }}
       </x-select-option>
@@ -609,7 +609,19 @@ export default {
       }
     },
     open_addOption (value, label, data, optionComponent) {
-      this.optionsInternal.push({
+      let isUpdate = false
+      for (let i = 0; i < this.optionsInternal.length; i++) {
+        if (this.optionsInternal[i] === value) {
+          this.$set(this.optionsInternal, i, {
+            value: value,
+            label: label,
+            data: data,
+            optionComponent: optionComponent
+          })
+          isUpdate = true
+        }
+      }
+      !isUpdate && this.optionsInternal.push({
         value: value,
         label: label,
         data: data,
@@ -617,9 +629,9 @@ export default {
       })
     },
     open_destroyOption (optionComponent) {
-      if (this.optionsInternal && this.optionsInternalObject) {
-        for (let i = 0; i < this.optionsInternalObject.length; i++) {
-          if (this.optionsInternalObject[i].optionComponent === optionComponent) {
+      if (this.optionsInternal) {
+        for (let i = 0; i < this.optionsInternal.length; i++) {
+          if (this.optionsInternal[i].optionComponent === optionComponent) {
             this.optionsInternal.splice(i, 1)
             break
           }

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-// import 'highlight.js/styles/atom-one-light.css';
+import 'highlight.js/styles/atom-one-light.css';
 // tomorrow solarized-light atom-one-light
 // import hljs from 'highlight.js'
 export default {

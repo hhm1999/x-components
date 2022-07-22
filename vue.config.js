@@ -45,8 +45,8 @@ module.exports = {
             if (/variableJs.scss$/i.test(resourcePath)) {
               return 'icss'
             }
-            if (/github-markdown.scss$/i.test(resourcePath) || /global.scss$/i.test(resourcePath)) {
-              return "global";
+            if (/github-markdown.scss$/i.test(resourcePath) || /global.scss$/i.test(resourcePath) || /atom-one-light.css$/i.test(resourcePath)) {
+              return 'global';
             }
             return 'local'
           },

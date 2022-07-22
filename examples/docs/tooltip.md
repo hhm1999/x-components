@@ -128,8 +128,7 @@
 ``` html
 <template>
   <div :class="$style.main">
-    <x-tooltip :visibility="visibility" :interaction="false" placement="right-start">
-      <div slot="content">{{ content }}</div>
+    <x-tooltip :visibility="visibility" :interaction="false" :content="content" placement="right-start">
       <x-btn @click="click" :class="$style.btn">点击{{!visibility ? '显示' : '关闭' }}</x-btn>
     </x-tooltip>
   </div>
@@ -139,15 +138,12 @@ export default {
   data () {
     return {
       visibility: false,
-      content: '123',
+      content: '点击关闭',
     }
   },
   methods: {
     click() {
-      this.visibility = true
-      setTimeout(() => {
-        this.content = '456'
-      }, 1000)
+      this.visibility = !this.visibility
     }
   }
 }

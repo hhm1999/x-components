@@ -2,7 +2,7 @@
   "name": "@hhm1999/x-components",
   "main": "dist/x-components.umd.min.js",
   "description": "基于Vue的组件库",
-  "version": "0.6.3",
+  "version": "0.6.5",
   "files": [
     "dist/*"
   ],
