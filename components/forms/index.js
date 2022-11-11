@@ -12,6 +12,7 @@ import timePicker from './timePicker/index.js'
 import datePicker from './datePicker/index.js'
 import dropDown from './dropDown/index.js'
 import radio from './radio/index.js'
+import randomUniqueValue from './randomUniqueValue/index.js'
 // import richEditor from './richEditor/index.js'
 
 var components = [
@@ -29,6 +30,7 @@ var components = [
   datePicker,
   dropDown,
   radio,
+  randomUniqueValue,
   // richEditor,
 ]
 const install = Vue => {

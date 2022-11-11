@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.main">
-    <x-explain placement="top" :class="$style.explain">解释说明 placement="top"</x-explain>
+    <x-explain placement="top" :class="$style.explain">解释说明placement="top"</x-explain>
     <x-explain placement="top-start" :class="$style.explain">解释说明 placement="top-start"</x-explain>
     <x-explain placement="top-end" :class="$style.explain">解释说明 placement="top-end"</x-explain>
     <x-explain placement="bottom" :class="$style.explain">解释说明 placement="bottom"</x-explain>

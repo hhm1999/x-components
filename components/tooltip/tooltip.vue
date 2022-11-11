@@ -82,7 +82,7 @@ export default {
               type: this.type
             }
           },
-          this.content || this.$slots.content)
+          this.$slots.content || this.content)
       },
       methods: {
         open_setReferenceDom (dom) {
@@ -157,6 +157,9 @@ export default {
       }
       return element
     }
+  },
+  updated() {
+    this.containerComponent.$forceUpdate()
   },
   beforeDestroy () {
     this.interactionRemove()

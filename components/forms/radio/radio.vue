@@ -118,8 +118,8 @@ export default {
   }
   &.in_group{
     margin-right: 30px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    // margin-top: 5px;
+    // margin-bottom: 5px;
     &:last-child {
       margin-right: 0;
     }

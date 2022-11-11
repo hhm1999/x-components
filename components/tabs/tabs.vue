@@ -68,6 +68,9 @@ export default {
         }
       }
     },
+    openAddPane() {
+      this.getPaneInstances();
+    },
     handlerNavSwitch (paneName) {
       this.$emit('input', paneName)
     },

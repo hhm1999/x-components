@@ -16,11 +16,14 @@
   </div>
 </template>
 <script>
+import { customAlphabet } from 'nanoid'
 import utils from '../../utils/utils.js'
+
+const nanoidCustom = customAlphabet('1234567890abcdef', 10)
 export default {
-  name: 'x-input',
+  name: 'x-random-unique-value',
   formsMark: {
-    name: 'x-input',
+    name: 'x-random-unique-value',
     events: [
       'focus',
       'blur'
@@ -60,7 +63,9 @@ export default {
     }
   },
   created () {
-    // this.valueInternal = this.value
+    if (!this.valueInternal) {
+      this.valueInternal = nanoidCustom();
+    }
   },
   watch: {
     value (val) {

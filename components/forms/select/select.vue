@@ -203,9 +203,12 @@ export default {
   },
   watch: {
     multipleSearchValue (val) {
+      const style = window.getComputedStyle(this.$refs.searchInput, null);
       let width = 20
       if (val) {
-        width = utils.dom.getTextPlaceholderSize(val)
+        width = utils.dom.getTextPlaceholderSize(val, {
+          'font-size': style.getPropertyValue('font-size')
+        })
       }
       width < 20 && (width = 20)
       this.multipleSearchInputWidth = width

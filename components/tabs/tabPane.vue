@@ -35,6 +35,7 @@ export default {
     // if (this.$slots.label && this.$slots.label[0]) {
     //   console.log(this.$slots.label[0]);
     // }
+    this.$parent.openAddPane();
   },
   watch: {
     active (val) {

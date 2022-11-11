@@ -65,6 +65,7 @@ export default {
   width: 100%;
   font-size: 0;
   -webkit-text-size-adjust:none;
+  line-height: 1;
   .input{
     display: inline-block;
     width: 100%;

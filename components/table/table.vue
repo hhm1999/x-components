@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody :class="$style.tbody">
-        <tr :class="$style.tr" :key="item[vueKey]" v-for="item in data">
+        <tr :class="$style.tr" :key="item[vueKey] + '-' + i" v-for="(item, i) in data">
           <td @click="handleTdClick" :class="$style.td" :key="column['key']" v-for="column in columns">
             <template v-if="column.isWwOpenData">
               <x-ww-open-data type="userName" :openid="item[column['key']]" />
@@ -22,6 +22,18 @@
             </template>
             <template v-else-if="column.html">
               <div v-html="item[column['key']]"></div>
+            </template>
+            <template v-else-if="column.action && item[column['key']]">
+              <x-btn
+                v-for="btn in item[column['key']]"
+                :key="btn.name"
+                :size="btn.size || 'small'"
+                :type="btn.type || 'default'"
+                @click="handleActionClick(item, btn.name)"
+                :class="$style.btn"
+              >
+                {{ btn.label }}
+              </x-btn>
             </template>
             <template v-else>
               {{ item[column['key']] }}
@@ -66,7 +78,10 @@ export default {
   methods: {
     handleTdClick (e) {
       this.$emit('cell-click', e)
-    }
+    },
+    handleActionClick (item, name) {
+      this.$emit('action-click', item, name);
+    },
   },
   computed: {
   },
@@ -108,6 +123,12 @@ export default {
       // &:last-child{
       //   border-right: none;
       // }
+    }
+  }
+  .btn{
+    margin-right: 10px;
+    &:last-child{
+      margin-right: 0px;
     }
   }
 }
