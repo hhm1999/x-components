@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.main">
+  <div :class="classMain">
     <input
       ref="input"
       v-model.trim="valueInternal"
@@ -13,6 +13,7 @@
     >
     <div @click="handleClickSubtract" :class="classSubtract">-</div>
     <div @click="handleClickAdd" :class="classAdd">+</div>
+    <x-slider :class="$style.slider" @up="calculateSliderMaxMin" v-if="showSlider" v-model="valueInternal" :min="sliderMin" :max="sliderMax" />
   </div>
 </template>
 <script>
@@ -54,15 +55,26 @@ export default {
     max: {
       type: Number,
       default: null
-    }
+    },
+    hasSlider: {
+      type: Boolean,
+      default: false
+    },
+    sliderScope: {
+      type: Number,
+      default: 100,
+    },
   },
   data () {
     return {
-      valueInternal: this.value
+      valueInternal: this.value,
+      sliderMin: undefined,
+      sliderMax: undefined,
     }
   },
   created () {
-    // this.valueInternal = this.value
+    // this.valueInternal = this.value\
+    this.calculateSliderMaxMin();
   },
   watch: {
     max () {
@@ -91,6 +103,15 @@ export default {
     }
   },
   computed: {
+    showSlider() {
+      return !this.precision && this.hasSlider;
+    },
+    classMain() {
+      return {
+        [this.$style.main]: true,
+        [this.$style.has_slider]: this.showSlider,
+      }
+    },
     subtractDisabled () {
       return (this.min !== null && this.value <= this.min) || this.disabled
     },
@@ -119,6 +140,12 @@ export default {
     }
   },
   methods: {
+    calculateSliderMaxMin() {
+      if (!utils.isNullOrUndefined(this.value) ) {
+        this.sliderMin = parseInt(this.value) - this.sliderScope;
+        this.sliderMax = parseInt(this.value) + this.sliderScope;
+      }
+    },
     handlerBlur () {
       this.valueInternal = this.getLegalNumber(this.valueInternal)
       this.$emit('blur')
@@ -176,10 +203,16 @@ export default {
   width: 150px !important;
   position: relative;
   // overflow: hidden;
+  &.has_slider{
+     height: 63px;
+  }
   &:hover{
     .input{
       border-color: $color-primary-lighter;
     }
+  }
+  .slider{
+    margin-top: 5px;
   }
   .add,
   .subtract{
@@ -207,7 +240,7 @@ export default {
   }
   .subtract{
     border-radius: 0px 0px 4px 0px;
-    bottom: 1px;
+    top: 20px;
   }
   .add,
   .subtract{

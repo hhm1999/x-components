@@ -5,7 +5,7 @@ number 数字输入框。
 <template>
   <div>
     <p class="c_title">基础用法</p>
-    <x-number placeholder="请输入" v-model="valueBasis"></x-number>
+    <x-number :hasSlider="true" placeholder="请输入" v-model="valueBasis"></x-number>
     <p class="c_title">精度设置</p>
     <x-number :precision="3" v-model="valuePrecision"></x-number>
     <p class="c_title">步长设置</p>
@@ -20,7 +20,7 @@ number 数字输入框。
 export default {
   data () {
     return {
-      valueBasis: 12,
+      valueBasis: 0,
       valuePrecision: 1,
       valueStep: 520,
       valueLimit: 0,

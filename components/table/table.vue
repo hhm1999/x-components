@@ -29,7 +29,7 @@
                 :key="btn.name"
                 :size="btn.size || 'small'"
                 :type="btn.type || 'default'"
-                @click="handleActionClick(item, btn.name)"
+                @click="handleActionClick(item, btn.name, i)"
                 :class="$style.btn"
               >
                 {{ btn.label }}

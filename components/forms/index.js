@@ -4,6 +4,7 @@ import input from './input/index.js'
 import inputImitation from './inputImitation/index.js'
 import textarea from './textarea/index.js'
 import xswitch from './switch/index.js'
+import slider from './slider/index.js'
 import number from './number/index.js'
 import select from './select/index.js'
 import cascader from './cascader/index.js'
@@ -21,6 +22,7 @@ var components = [
   textarea,
   xswitch,
   number,
+  slider,
   select,
   cascader,
   formsItem,
