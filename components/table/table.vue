@@ -79,8 +79,8 @@ export default {
     handleTdClick (e) {
       this.$emit('cell-click', e)
     },
-    handleActionClick (item, name) {
-      this.$emit('action-click', item, name);
+    handleActionClick (item, name, i) {
+      this.$emit('action-click', item, name, i);
     },
   },
   computed: {
